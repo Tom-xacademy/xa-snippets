@@ -1,0 +1,24 @@
+{
+  "name": "xacademy_snippets",
+  "version": "1.0.0",
+  "description": "React-typescript code snippets.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tom-xacademy/xa-snippets.git"
+  },
+  "keywords": [
+    "React",
+    "Typescript",
+    "CodeSnippets"
+  ],
+  "author": "tamas.xacademy@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tom-xacademy/xa-snippets/issues"
+  },
+  "homepage": "https://github.com/Tom-xacademy/xa-snippets#readme"
+}
