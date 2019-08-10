@@ -1,24 +1,46 @@
 {
-  "name": "xacademy_snippets",
-  "version": "1.0.0",
-  "description": "React-typescript code snippets.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tom-xacademy/xa-snippets.git"
-  },
-  "keywords": [
-    "React",
-    "Typescript",
-    "CodeSnippets"
-  ],
-  "author": "tamas.xacademy@gmail.com",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Tom-xacademy/xa-snippets/issues"
-  },
-  "homepage": "https://github.com/Tom-xacademy/xa-snippets#readme"
+    "name": "xasnippets",
+    "description": "React-typescript code snippets for XAcademy.",
+    "version": "1.0.0",
+    "displayName": "Reactjs code snippets",
+    "publisher": "Tomi",
+    "icon": "images/react.png",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Tom-xacademy/xa-snippets"
+    },
+    "keywords": [
+        "React",
+        "Typescript",
+        "CodeSnippets"
+    ],
+    "engines": {
+        "vscode": "0.10.x"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+				"language": "typescript",
+				"path": "./snippets/snippets.json"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./snippets/snippets.json"
+			}
+        ]
+    },
+    "author": "tamas.xacademy@gmail.com",
+    "bugs": {
+        "url": "https://github.com/Tom-xacademy/xa-snippets/issues"
+    },
+    "homepage": "https://github.com/Tom-xacademy/xa-snippets#readme",
+    "__metadata": {
+        "id": "",
+        "publisherId": "",
+        "publisherDisplayName": "Tomi"
+    }
 }
