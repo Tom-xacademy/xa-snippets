@@ -1,7 +1,7 @@
 {
     "name": "xasnippets",
     "description": "React-typescript code snippets for XAcademy.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "displayName": "Reactjs code snippets",
     "publisher": "Tomi",
     "icon": "images/react.png",
@@ -24,13 +24,13 @@
     "contributes": {
         "snippets": [
             {
-				"language": "typescript",
-				"path": "./snippets/snippets.json"
-			},
-			{
-				"language": "typescriptreact",
-				"path": "./snippets/snippets.json"
-			}
+                "language": "typescript",
+                "path": "./snippets/snippets.json"
+            },
+            {
+                "language": "typescriptreact",
+                "path": "./snippets/snippets.json"
+            }
         ]
     },
     "author": "tamas.xacademy@gmail.com",

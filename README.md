@@ -7,8 +7,6 @@ If you're interested in it, we have a Components, Store, and Interfaces folder.
 In the Components, we use Controllers (containing the brain part of our react code), Views,
 which contain the JSX stuff, and Models. DAOs are used to access APIs and modelize the responses.
 
-Later, I'm going to add model and interface snippets as well, but for the time being, it's just these few.
-
 # Commands
 
 | -------------------------------------------------------------------------- |
