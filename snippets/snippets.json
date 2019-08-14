@@ -3,7 +3,7 @@
         "prefix": "cc",
         "body": [
             "import React from \"react\";",
-            "import IError from \"../../Interfaces/IError\";",
+            "import IError from \"../../../Interfaces/IError\";",
             "",
             "export type ${0}Props = {}",
             "",
@@ -31,7 +31,7 @@
         "body": [
             "import React from \"react\";",
             "import { connect } from \"react-redux\";",
-            "import IError from \"../../Interfaces/IError\";",
+            "import IError from \"../../../Interfaces/IError\";",
             "",
             "export type ${0}Props = IReduxState & IReduxAction & {}",
             "",
