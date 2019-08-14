@@ -198,5 +198,40 @@
         "prefix": "inf",
         "body": ["export interface ${0} {}"],
         "description": "Generates an interface."
+    },
+    "XAReactSetState": {
+        "prefix": "ss",
+        "body": ["this.setState({${1}: ${2});"],
+        "description": "Generates a setState function."
+    },
+    "XAReactSetStateCB": {
+        "prefix": "ssc",
+        "body": ["this.setState({${1}: ${2}, () => {${3});"],
+        "description": "Generates a setState function with a callback."
+    },
+    "XAReactFunction": {
+        "prefix": "fnc",
+        "body": ["const ${1} = (): ${2} => {", "    ${3}", "};"],
+        "description": "Generates a named function."
+    },
+    "XAReactMathF": {
+        "prefix": "floor",
+        "body": ["Math.floor(${1});"],
+        "description": "Generates a Math.floor() function."
+    },
+    "XAUseState": {
+        "prefix": "ust",
+        "body": ["const [${1}, set_${1}] = React.useState(${2});"],
+        "description": "Generates a React.useState() function."
+    },
+    "XAUseEffect": {
+        "prefix": "usef",
+        "body": [
+            "React.useEffect(() => {",
+            "    ${2}",
+            "    return () => {}",
+            "}, [${1}]);"
+        ],
+        "description": "Generates a React.useEffect() function."
     }
 }

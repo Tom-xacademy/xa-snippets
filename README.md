@@ -21,6 +21,12 @@ which contain the JSX stuff, and Models. DAOs are used to access APIs and modeli
 |model           |Generates a model for some API data.						   |
 |mf              |Generates a model factory for some model instance.		   |
 |inf             |Generates an interface of some type.						   |
+|ss              |Generates a setState function.						       |
+|ssc             |Generates a setState function with a callback.			   |
+|fnc             |Generates a named function with a return type.			   |
+|floor           |Generates a Math.floor() function.            			   |
+|ust             |Generates a React.useState instance.            			   |
+|usef            |Generates a React.useEffect instance.            			   |
 
 # Repository URLs
 
