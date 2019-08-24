@@ -2,7 +2,7 @@
     "name": "xasnippets",
     "description": "React-typescript code snippets for XAcademy.",
     "version": "1.0.7",
-    "displayName": "Reactjs code snippets",
+    "displayName": "React - Typescript snippets (XAcademy)",
     "publisher": "Tomi",
     "icon": "images/react.png",
     "license": "ISC",
@@ -11,9 +11,12 @@
         "url": "https://github.com/Tom-xacademy/xa-snippets"
     },
     "keywords": [
-        "React",
-        "Typescript",
-        "CodeSnippets"
+        "react",
+        "react-xa",
+        "typescript",
+        "codesnippets",
+        "typescript code snippets",
+        "xacademy"
     ],
     "engines": {
         "vscode": "0.10.x"
