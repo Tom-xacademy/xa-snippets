@@ -3,9 +3,7 @@
 This extension was created based on the folder and component structure we're using.
 Hence, the imports are most likely going to point to non-existent files for others.
 
-If you're interested in it, we have a Components, Store, and Interfaces folder.
-In the Components, we use Controllers (containing the brain part of our react code), Views,
-which contain the JSX stuff, and Models. DAOs are used to access APIs and modelize the responses.
+Sadly, Microsoft still doesn't support private extensions so here it is...
 
 # Commands
 
@@ -30,13 +28,14 @@ which contain the JSX stuff, and Models. DAOs are used to access APIs and modeli
 |floor           |Generates a Math.floor() function.            			   |
 |ust             |Generates a React.useState instance.            			   |
 |usef            |Generates a React.useEffect instance.            			   |
+|doc             |Generates a javascript documentation.            			   |
+|cdm             |Generates a componentDidMount lifecycle method.              |
+|cdu             |Generates a componentDidUpdate lifecycle method. 			   |
+|deriv           |Generates a static getDerivedStateFromProps method.		   |
+|daofoo          |Generates an async function to access an API in the DAO.     |
 
 # Repository URLs
 
 **HTTPS**
 
 > https://github.com/Tom-xacademy/xa-snippets.git
-
-**SSH**
-
-> git@github.com:Tom-xacademy/xa-snippets.git

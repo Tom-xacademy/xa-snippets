@@ -13,7 +13,10 @@
             "}",
             "",
             "class ${0} extends React.Component<I${0}Props, I${0}State> {",
-            "    state: I${0}State = {};",
+            "    state: I${0}State = {",
+            "        loading: true,",
+            "        error: null,",
+            "    };",
             "",
             "    render() {",
             "        return (",
@@ -43,6 +46,11 @@
             "}",
             "",
             "class ${0} extends React.Component<I${0}Props, I${0}State> {",
+            "    state: I${0}State = {",
+            "        loading: true,",
+            "        error: null,",
+            "    };",
+            "",
             "    render() {",
             "        return (",
             "           <div>",
@@ -259,5 +267,55 @@
             "}, [${1}]);"
         ],
         "description": "Generates a React.useEffect() function."
+    },
+    "XADocs": {
+        "prefix": "doc",
+        "body": [
+            "/**",
+            " * ## ${0}",
+            " */"
+        ],
+        "description": "Generates a documentation comments. /** ... */"
+    },
+    "XACDM": {
+        "prefix": "cdm",
+        "body": [
+            "componentDidMount() {",
+            "    ${0}",
+            "}"
+        ],
+        "description": "Generates a componentDidMount lifecycle method."
+    },
+    "XACDU": {
+        "prefix": "cdu",
+        "body": [
+            "// https://reactjs.org/docs/react-component.html#componentdidupdate",
+            "componentDidUpdate(prevProps: I${1}, prevState: I${1}) {",
+            "    ${2}",
+            "}"
+        ],
+        "description": "Generates a componentDidUpdate lifecycle method."
+    },
+    "XADeriv": {
+        "prefix": "deriv",
+        "body": [
+            "// https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops",
+            "static getDerivedStateFromProps(props: I${1}, state: I${1}) {",
+            "    ${2}",
+            "    return state;",
+            "}"
+        ],
+        "description": "Generates a componentDidMount lifecycle method."
+    },
+    "XADAOFoo": {
+        "prefix": "daofoo",
+        "body": [
+            "public static async ${1} (): Promise<${2}> {",
+            "    const request: AxiosPromise = axios.getInstance().${3}",
+            "    const response: AxiosResponse = await request;",
+            "    ",
+            "}"
+        ],
+        "description": "Generates a componentDidMount lifecycle method."
     }
 }
