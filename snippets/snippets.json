@@ -3,7 +3,7 @@
         "prefix": "cc",
         "body": [
             "import React from \"react\";",
-            "import IError from \"../../Interfaces/IError\";",
+            "import IError from \"../../../Interfaces/IError\";",
             "",
             "export type I${0}Props = {}",
             "",
@@ -29,14 +29,14 @@
             "",
             "export default ${0};"
         ],
-        "description": "Generates a react class component"
+        "description": "Generates a react class component."
     },
     "XAReactClassRedux": {
         "prefix": "ccr",
         "body": [
             "import React from \"react\";",
             "import { connect } from \"react-redux\";",
-            "import IError from \"../../Interfaces/IError\";",
+            "import IError from \"../../../Interfaces/IError\";",
             "",
             "export type I${0}Props = IReduxState & IReduxAction & {}",
             "",
@@ -70,7 +70,7 @@
             "",
             "export default connect(mstp,mdtp)(${0});"
         ],
-        "description": "Generates a react class component with redux"
+        "description": "Generates a react class component with redux."
     },
     "XAReactRedux": {
         "prefix": "redux",
@@ -92,15 +92,20 @@
         "body": "[import { connect } from \"react-redux\";]",
         "description": "Imports the { connect } from react-redux."
     },
+    "XAErrorProp": {
+        "prefix": "er",
+        "body": "[error={${1}props.error}]",
+        "description": "Generates error={props.error}."
+    },
     "XAReactStatelessComponentInheritor": {
         "prefix": "sfci",
         "body": [
             "import React from \"react\";",
             "import {I${0}Props, I${0}State} from \"../Controller/${0}\"",
             "",
-            "export type I${1}Props = I${0}Props & I${0}State & {}",
+            "export type I${1}Props = I${0}Props & I${0}State & {};",
             "",
-            "const ${1}: React.SFC<I${1}Props> = (props): React.ReactElement => {",
+            "const ${1}: React.FC<I${1}Props> = (props): React.ReactElement => {",
             "    return (",
             "       <div>",
             "           ",
@@ -117,9 +122,30 @@
         "body": [
             "import React from \"react\";",
             "",
-            "export interface I${0}Props {}",
+            "export interface I${0}Props {};",
             "",
-            "const ${0}: React.SFC<${0}Props> = (props): React.ReactElement => {",
+            "const ${0}: React.FC<I${0}Props> = (props): React.ReactElement => {",
+            "    return (",
+            "        <div>",
+            "            ",
+            "        </div>",
+            "    );",
+            "}",
+            "",
+            "export default ${0};"
+        ],
+        "description": "Generates a react function component which inherits cloned props and state from parent component."
+    },
+    "XAReactFunctionCmpRedux": {
+        "prefix": "sfcr",
+        "body": [
+            "import React from \"react\";",
+            "import { connect } from \"react-redux\";",
+            "import IError from \"../../../Interfaces/IError\";",
+            "",
+            "export type I${0}Props = IReduxState & IReduxAction & {}",
+            "",
+            "const ${0}: React.FC<I${0}Props> = (props): React.ReactElement => {",
             "    return (",
             "       <div>",
             "            ",
@@ -127,9 +153,17 @@
             "    );",
             "}",
             "",
-            "export default ${0};"
+            "interface IReduxState {}",
+            "",
+            "const mstp = (state, {}): IReduxState => {return {}};",
+            "",
+            "interface IReduxAction {}",
+            "",
+            "const mdtp = (dispatch, {}): IReduxAction => {return {}};",
+            "",
+            "export default connect(mstp,mdtp)(${0});"
         ],
-        "description": "Generates a react function component which inherits cloned props and state from parent component."
+        "description": "Generates a react function component with redux."
     },
     "XAReactReducer": {
         "prefix": "reducer",
@@ -270,20 +304,12 @@
     },
     "XADocs": {
         "prefix": "doc",
-        "body": [
-            "/**",
-            " * ## ${0}",
-            " */"
-        ],
+        "body": ["/**", " * ## ${0}", " */"],
         "description": "Generates a documentation comments. /** ... */"
     },
     "XACDM": {
         "prefix": "cdm",
-        "body": [
-            "componentDidMount() {",
-            "    ${0}",
-            "}"
-        ],
+        "body": ["componentDidMount() {", "    ${0}", "}"],
         "description": "Generates a componentDidMount lifecycle method."
     },
     "XACDU": {
