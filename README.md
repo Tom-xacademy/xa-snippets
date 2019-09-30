@@ -12,8 +12,11 @@ Sadly, Microsoft still doesn't support private extensions so here it is...
 |cc				 |Generates a class based typescript component.                |
 |ccr             |Same as cc but with redux state and dispatch included.       |
 |redux           |Generates the mapDispatchToProps and StateToProps functions. |
+|mstp            |Generates a mapStateToProps function in the component.       |
+|mdtp            |Generates a mapDispatchToProps function in the component.    |
 |conn            |Imports the react-redux connect function from the module.    |
 |sfc             |Generates a simple function component with its own type.     |
+|imr             |Import the React package in the file.                        |
 |sfr             |Generates a simple function component with redux included.   |
 |sfci            |Generates a function component that inherits state and props from its Controller class. |
 |reducer         |Generates a reducer with initial state and interfaces.       |

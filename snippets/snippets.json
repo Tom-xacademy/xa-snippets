@@ -72,6 +72,24 @@
         ],
         "description": "Generates a react class component with redux."
     },
+    "XAReactMapStateToProps": {
+        "prefix": "mstp",
+        "body": [
+            "interface IReduxState {}",
+            "",
+            "const mstp = (state, {}): IReduxState => {return {}};"
+        ],
+        "description": "Generates a react class component with redux"
+    },
+    "XAReactMapDispatchToProps": {
+        "prefix": "mdtp",
+        "body": [
+            "interface IReduxAction {}",
+            "",
+            "const mdtp = (dispatch, {}): IReduxAction => {return {}};"
+        ],
+        "description": "Generates a react class component with redux"
+    },
     "XAReactRedux": {
         "prefix": "redux",
         "body": [
@@ -87,14 +105,19 @@
         ],
         "description": "Generates a react class component with redux"
     },
+    "XAImportReact": {
+        "prefix": "imr",
+        "body": "import React from \"react\";",
+        "description": "Imports React."
+    },
     "XAConnect": {
         "prefix": "conn",
-        "body": "[import { connect } from \"react-redux\";]",
+        "body": "import { connect } from \"react-redux\";",
         "description": "Imports the { connect } from react-redux."
     },
     "XAErrorProp": {
         "prefix": "er",
-        "body": "[error={${1}props.error}]",
+        "body": "error={${1}props.error}",
         "description": "Generates error={props.error}."
     },
     "XAReactStatelessComponentInheritor": {
@@ -200,7 +223,6 @@
             "export default abstract class ${1}DAO {",
             "    private static readonly base: string = \"${2}\"",
             "",
-            "    public static async ${3}(): Promise<${4}> {}",
             "}"
         ],
         "description": "Generates a Data Access Object for an API."
@@ -213,8 +235,6 @@
             "",
             "export default abstract class ${1}DAO {",
             "    private static readonly base: string = \"${2}\"",
-            "",
-            "    public static async ${3}(): Promise<${4}> {}",
             "}"
         ],
         "description": "Generates a Data Access Object for an API in a component folder."
@@ -240,13 +260,13 @@
     "XAReactFactory": {
         "prefix": "mf",
         "body": [
-            "export default abstract class ${1}Factory {",
+            "export default abstract class ${2}Factory {",
             "",
-            "    public static createList(${1}: I${1}): I${1}ModelList {",
-            "        const ${2}List = I${1}ModelList = []",
+            "    public static createList(API${1}s: I${1}[]): ${2}[] {",
+            "        const ${2}List: ${2}[] = []",
             "",
-            "        for (let key in ${1}) {",
-            "           const ${3}: ${4} = new ${4}(${1});",
+            "        for (let key in API${1}s) {",
+            "           const ${3}: ${2} = new ${2}(API${1}s[key]);",
             "",
             "            ${2}List.push(${3});",
             "        }",
@@ -255,7 +275,7 @@
             "    }",
             "}"
         ],
-        "description": "Generates a Model factory."
+        "description": "Generates a Model factory. 1st argument should be the interface name, second the model, third the single model instace variable name."
     },
     "XAReactInterface": {
         "prefix": "inf",
@@ -264,21 +284,21 @@
     },
     "XAReactSetState": {
         "prefix": "ss",
-        "body": ["this.setState({${1}: ${2}});"],
+        "body": ["this.setState({})"],
         "description": "Generates a setState function."
     },
     "XAReactSetStateCB": {
         "prefix": "ssc",
-        "body": ["this.setState({${1}: ${2}}, () => {${3}});"],
+        "body": ["this.setState({}, () => {});"],
         "description": "Generates a setState function with a callback."
     },
     "XAReactFunction": {
-        "prefix": "fnc",
+        "prefix": "foo",
         "body": ["const ${1} = (): ${2} => {", "    ${3}", "};"],
         "description": "Generates a named function."
     },
     "XAExportReactFunction": {
-        "prefix": "efnc",
+        "prefix": "efoo",
         "body": ["export const ${1} = (): ${2} => {", "    ${3}", "};"],
         "description": "Generates an exported and named function."
     },
