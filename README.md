@@ -11,13 +11,17 @@ Sadly, Microsoft still doesn't support private extensions so here it is...
 |----------------|-------------------------------------------------------------|
 |cc				 |Generates a class based typescript component.                |
 |ccr             |Same as cc but with redux state and dispatch included.       |
+|ctx             |Generates a react context with some type and a default value.|
 |redux           |Generates the mapDispatchToProps and StateToProps functions. |
 |mstp            |Generates a mapStateToProps function in the component.       |
 |mdtp            |Generates a mapDispatchToProps function in the component.    |
 |conn            |Imports the react-redux connect function from the module.    |
 |sfc             |Generates a simple function component with its own type.     |
 |imr             |Import the React package in the file.                        |
+|ims             |Import Colors and Mixins less files.                         |
+|iml             |Starts the import line of a css file in the view.            |
 |sfr             |Generates a simple function component with redux included.   |
+|sfhci           |Generates a function component which inherits props from hook controller.   |
 |sfci            |Generates a function component that inherits state and props from its Controller class. |
 |reducer         |Generates a reducer with initial state and interfaces.       |
 |dao             |Generates a data access object for an API. 				   |

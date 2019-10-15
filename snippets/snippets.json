@@ -1,4 +1,31 @@
 {
+    "XAContextGenerator": {
+        "prefix": "ctx",
+        "body": [
+            "export const default${1}ContextValue${3} = {}",
+            "",
+            "/**",
+            " * ## ${1}Context",
+            " */",
+            "export const ${1}Context: React.Context<${2}> = React.createContext<${2}>({});",
+            "",
+            "${1}Context.displayName = \"${1}Context\";"
+        ],
+        "description": "In the common component tree structure, it imports the Colors and Mixins less files."
+    },
+    "XAImportCss": {
+        "prefix": "iml",
+        "body": ["import \"./Less/${0}.css\";"],
+        "description": "Starts the import line of the css file for a view component."
+    },
+    "XAImportStyleAndMixins": {
+        "prefix": "ims",
+        "body": [
+            "@import \"../../../../Css/Mixins.less\";",
+            "@import \"../../../../Css/Colors.less\";"
+        ],
+        "description": "In the common component tree structure, it imports the Colors and Mixins less files."
+    },
     "XAReactClass": {
         "prefix": "cc",
         "body": [
@@ -124,9 +151,29 @@
         "prefix": "sfci",
         "body": [
             "import React from \"react\";",
-            "import {I${0}Props, I${0}State} from \"../Controller/${0}\"",
+            "import {I${0}Props, I${0}State} from \"../Controller/${0}.controller\"",
             "",
             "export type I${1}Props = I${0}Props & I${0}State & {};",
+            "",
+            "const ${1}: React.FC<I${1}Props> = (props): React.ReactElement => {",
+            "    return (",
+            "       <div>",
+            "           ",
+            "       </div>",
+            "    );",
+            "}",
+            "",
+            "export default ${1};"
+        ],
+        "description": "Generates a react function component which inherits cloned props and state from parent component."
+    },
+    "XAReactStatelessComponentInheritorFromFunctionControllerType": {
+        "prefix": "sfhci",
+        "body": [
+            "import React from \"react\";",
+            "import { I${0}Props } from \"../Controller/${0}.controller\"",
+            "",
+            "export interface I${1}Props extends I${0}Props {};",
             "",
             "const ${1}: React.FC<I${1}Props> = (props): React.ReactElement => {",
             "    return (",
