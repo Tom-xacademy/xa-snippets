@@ -28,7 +28,7 @@ Sadly, Microsoft still doesn't support private extensions so here it is...
 |cdao            |Generates a data access object for an API in a component.    |
 |model           |Generates a model for some API data.						   |
 |er              |error={props.error} || error={this.props.error}              |
-|mf              |Generates a model factory for some model instance.		   |
+|e               |Generates an error and a loading state, using react hook.    |
 |inf             |Generates an interface of some type.						   |
 |ss              |Generates a setState function.						       |
 |ssc             |Generates a setState function with a callback.			   |
