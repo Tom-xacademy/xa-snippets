@@ -31,10 +31,6 @@
 			{
 				"language": "typescriptreact",
 				"path": "./snippets/snippets.json"
-			},
-			{
-				"language": "less",
-				"path": "./snippets/snippets.json"
 			}
 		]
 	},
