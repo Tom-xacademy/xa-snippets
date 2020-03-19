@@ -424,5 +424,10 @@
             "}"
         ],
         "description": "Generates a componentDidMount lifecycle method."
+    },
+    "XACloneDeeep": {
+        "prefix": "cd",
+        "body": [ "import { cloneDeep } from \"lodash\"" ],
+        "description": "Generates a lodash clone deep import."
     }
 }
