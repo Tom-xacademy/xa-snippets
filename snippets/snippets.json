@@ -1,435 +1,428 @@
 {
-	"XAContextGenerator": {
-		"prefix": "ctx",
-		"body": [
-			"import { Context, createContext } from \"react\";",
-			"",
-			"/**",
-			" * ## ${1}Context",
-			" */",
-			"export const ${1}Context: Context<${2}> = createContext<${2}>({});",
-			"",
-			"${1}Context.displayName = \"${1}Context\";"
-		],
-		"description": "Creates a context snippet that you can export and use in other places."
-	},
-	"XAContextGeneratorWComponent": {
-		"prefix": "ctxwc",
-		"body": [
-			"import React, { Context, createContext, useState } from \"react\";",
-			"import { I${1}Context } from \"../Interface/I${1}Context.interface.ts\"",
-			"",
-			"/**",
-			" * ## ${1}Context",
-			" */",
-			"export const ${1}Context: Context<${2}> = createContext<${2}>({});",
-			"",
-			"${1}Context.displayName = \"${1}Context\";",
-			"",
-			"interface I${3}Props {}",
-			"",
-			"/**",
-			" * ## ${$1} context wrapper component",
-			" * ",
-			" */",
-			"export const ${3}: React.FC<I${3}Props> = () => {",
-			"   const [${4}, set_${4}] = useState<${5}>(${6});",
-			"",
-			"   const ${7} = (): ${8} => {",
-			"       ${9}",
-			"   }",
-			"",
-			"   return (",
-			"       <${1}Context.Provider value={{",
-			"           ${7}",
-			"       }}>",
-			"           <${1}Context.Consumer>",
-			"               {(ctxValue: I${1}Context) => props.children}",
-			"           <${1}Context.Consumer/>",
-			"       <${1}Context.Provider/>",
-			"   )",
-			"}"
-		],
-		"description": "Creates a context and a component that provides it with a value."
-	},
-	"XAImportCss": {
-		"prefix": "iml",
-		"body": [ "import \"./Less${0}\";" ],
-		"description": "Starts the import line of the css file for a view component."
-	},
-	"XAReactClass": {
-		"prefix": "cc",
-		"body": [
-			"import React from \"react\";",
-			"import IError from \"xa-generics\"",
-			"",
-			"export type I${0}Props = {}",
-			"",
-			"export interface I${0}State {",
-			"    loading: boolean;",
-			"    error: IError;",
-			"}",
-			"",
-			"class ${0} extends React.Component<I${0}Props, I${0}State> {",
-			"    state: I${0}State = {",
-			"        loading: true,",
-			"        error: null,",
-			"    };",
-			"",
-			"    render() {",
-			"        return (",
-			"           <div>",
-			"               ",
-			"           </div>",
-			"        );",
-			"    }",
-			"}",
-			"",
-			"export default ${0};"
-		],
-		"description": "Generates a react class component."
-	},
-	"XAReactClassRedux": {
-		"prefix": "ccr",
-		"body": [
-			"import React from \"react\";",
-			"import { connect } from \"react-redux\";",
-			"import IError from \"xa-generics\";",
-			"",
-			"export type I${0}Props = IReduxState & IReduxAction & {}",
-			"",
-			"export interface I${0}State {",
-			"    loading: boolean;",
-			"    error: IError;",
-			"}",
-			"",
-			"class ${0} extends React.Component<I${0}Props, I${0}State> {",
-			"    state: I${0}State = {",
-			"        loading: true,",
-			"        error: null,",
-			"    };",
-			"",
-			"    render() {",
-			"        return (",
-			"           <div>",
-			"               ",
-			"           </div>",
-			"        );",
-			"    }",
-			"}",
-			"",
-			"interface IReduxState {}",
-			"",
-			"const mstp = (state, {}): IReduxState => {return {}};",
-			"",
-			"interface IReduxAction {}",
-			"",
-			"const mdtp = (dispatch, {}): IReduxAction => {return {}};",
-			"",
-			"export default connect(mstp,mdtp)(${0});"
-		],
-		"description": "Generates a react class component with redux."
-	},
-	"XAReactMapStateToProps": {
-		"prefix": "mstp",
-		"body": [
-			"interface IReduxState {}",
-			"",
-			"const mstp = (state, {}): IReduxState => {return {}};"
-		],
-		"description": "Generates a react class component with redux"
-	},
-	"XAReactMapDispatchToProps": {
-		"prefix": "mdtp",
-		"body": [
-			"interface IReduxAction {}",
-			"",
-			"const mdtp = (dispatch, {}): IReduxAction => {return {}};"
-		],
-		"description": "Generates a react class component with redux"
-	},
-	"XAReactRedux": {
-		"prefix": "redux",
-		"body": [
-			"interface IReduxState {}",
-			"",
-			"const mstp = (state, {}): IReduxState => {return {}};",
-			"",
-			"interface IReduxAction {}",
-			"",
-			"const mdtp = (dispatch, {}): IReduxAction => {return {}};",
-			"",
-			"export default connect(mstp,mdtp)(${0});"
-		],
-		"description": "Generates a react class component with redux"
-	},
-	"XAImportReact": {
-		"prefix": "imr",
-		"body": "import React from \"react\";",
-		"description": "Imports React."
-	},
-	"XAConnect": {
-		"prefix": "conn",
-		"body": "import { connect } from \"react-redux\";",
-		"description": "Imports the { connect } from react-redux."
-	},
-	"XAErrorProp": {
-		"prefix": "er",
-		"body": "error={${1}props.error}",
-		"description": "Generates error={props.error}."
-	},
-	"XAErrorAndLoadingState": {
-		"prefix": "el",
-		"body": [
-			"const [error, set_error] = useState<IError>(null);",
-			"const [loading, set_loading] = useState<boolean>(true);"
-		],
-		"description": "Generates an error and loading state in a functional component (hook-based)."
-	},
-	"XAReactStatelessComponentInheritor": {
-		"prefix": "sfci",
-		"body": [
-			"import React from \"react\";",
-			"import {I${0}Props, I${0}State} from \"../Controller/${0}.controller\"",
-			"",
-			"export type I${1}Props = I${0}Props & I${0}State & {};",
-			"",
-			"const ${1}: React.FC<I${1}Props> = (props): React.ReactElement => {",
-			"    return (",
-			"       <div>",
-			"           ",
-			"       </div>",
-			"    );",
-			"}",
-			"",
-			"export default ${1};"
-		],
-		"description": "(Class-based ctrl) => Generates a react function component which inherits cloned props and state from parent component."
-	},
-	"XAReactStatelessComponentInheritorFromFunctionControllerType": {
-		"prefix": "sfhci",
-		"body": [
-			"import React from \"react\";",
-			"import { I${0}Props } from \"../Controller/${0}.controller\"",
-			"",
-			"export interface I${1}Props extends I${0}Props {};",
-			"",
-			"const ${1}: React.FC<I${1}Props> = (props): React.ReactElement => {",
-			"    return (",
-			"       <div>",
-			"           ",
-			"       </div>",
-			"    );",
-			"}",
-			"",
-			"export default ${1};"
-		],
-		"description": "(Hook-based ctrl) => Generates a react function component which inherits cloned props from parent component."
-	},
-	"XAReactStatelessComponent": {
-		"prefix": "sfc",
-		"body": [
-			"import React from \"react\";",
-			"",
-			"export interface I${0}Props {};",
-			"",
-			"const ${0}: React.FC<I${0}Props> = (props): React.ReactElement => {",
-			"    return (",
-			"        <div>",
-			"            ",
-			"        </div>",
-			"    );",
-			"}",
-			"",
-			"export default ${0};"
-		],
-		"description": "Generates a react function component which inherits cloned props and state from parent component."
-	},
-	"XAReactFunctionCmpRedux": {
-		"prefix": "sfcr",
-		"body": [
-			"import React from \"react\";",
-			"import { connect } from \"react-redux\";",
-			"import IError from \"xa-generics\";",
-			"",
-			"export type I${0}Props = IReduxState & IReduxAction & {}",
-			"",
-			"const ${0}: React.FC<I${0}Props> = (props): React.ReactElement => {",
-			"    return (",
-			"       <div>",
-			"            ",
-			"       </div>",
-			"    );",
-			"}",
-			"",
-			"interface IReduxState {}",
-			"",
-			"const mstp = (state, {}): IReduxState => {return {}};",
-			"",
-			"interface IReduxAction {}",
-			"",
-			"const mdtp = (dispatch, {}): IReduxAction => {return {}};",
-			"",
-			"export default connect(mstp,mdtp)(${0});"
-		],
-		"description": "Generates a react function component with redux."
-	},
-	"XAReactReducer": {
-		"prefix": "reducer",
-		"body": [
-			"import types from \"../../Store/actions/actionTypes\";",
-			"import IActions from \"../../Interfaces/IActions\"",
-			"",
-			"export interface I${1}State {}",
-			"",
-			"function Init(): I${1}State {",
-			"    return {}",
-			"}",
-			"",
-			"interface I${1}Actions extends IActions, I${1}State {}",
-			"",
-			"const ${1} = (state: I${1}State = Init(), action: I${1}Actions): I${1}State => {",
-			"    switch(action.type) {",
-			"        case types.${0}:",
-			"            return {...state, ...{}}",
-			"        default: return state;",
-			"    }",
-			"}",
-			"",
-			"export default ${1};"
-		],
-		"description": "Generates a react function component which inherits cloned props and state from parent component."
-	},
-	"XAReactDAO": {
-		"prefix": "dao",
-		"body": [
-			"import axios from \"xa-generics\"",
-			"import {AxiosPromise, AxiosResponse} from \"axios\"",
-			"",
-			"export default abstract class ${1}DAO {",
-			"    private static readonly base: string = \"${2}\"",
-			"",
-			"   ${3}",
-			"}"
-		],
-		"description": "Generates a Data Access Object for an API."
-	},
-	"XAReactComponentDAO": {
-		"prefix": "cdao",
-		"body": [
-			"import axios from \"xa-generics\"",
-			"import { AxiosPromise, AxiosResponse } from \"axios\"",
-			"",
-			"export default abstract class ${1}DAO {",
-			"    private static readonly base: string = \"${2}\"",
-			"}"
-		],
-		"description": "Generates a Data Access Object for an API in a component folder."
-	},
-	"XAReactModel": {
-		"prefix": "model",
-		"body": [
-			"import { dataSetter } from \"xa-generics\";",
-			"",
-			"export default class ${1}Model {",
-			"",
-			"    constructor(${2}?: I${2}) {",
-			"        if (${2}) {",
-			"            for (let property in ${2}) {",
-			"                this[property] = dataSetter(this[property], ${2}[property]);",
-			"            }",
-			"        }",
-			"    }",
-			"}"
-		],
-		"description": "Generates a Model."
-	},
-	"XAReactInterface": {
-		"prefix": "inf",
-		"body": [ "export interface ${0} {}" ],
-		"description": "Generates an interface."
-	},
-	"XAReactSetState": {
-		"prefix": "ss",
-		"body": [ "this.setState({})" ],
-		"description": "Generates a setState function."
-	},
-	"XAReactSetStateCB": {
-		"prefix": "ssc",
-		"body": [ "this.setState({}, () => {});" ],
-		"description": "Generates a setState function with a callback."
-	},
-	"XAReactFunction": {
-		"prefix": "foo",
-		"body": [ "const ${1} = (): ${2} => {", "    ${3}", "};" ],
-		"description": "Generates a named function."
-	},
-	"XAExportReactFunction": {
-		"prefix": "efoo",
-		"body": [ "export const ${1} = (): ${2} => {", "    ${3}", "};" ],
-		"description": "Generates an exported and named function."
-	},
-	"XAReactMathF": {
-		"prefix": "floor",
-		"body": [ "Math.floor(${1});" ],
-		"description": "Generates a Math.floor() function."
-	},
-	"XAUseState": {
-		"prefix": "ust",
-		"body": [ "const [${1}, set_${1}] = useState(${2});" ],
-		"description": "Generates a useState() function."
-	},
-	"XAUseEffect": {
-		"prefix": "usef",
-		"body": [
-			"useEffect(() => {",
-			"    ${2}",
-			"    return () => {}",
-			"   //eslint-disable-next-line",
-			"}, [${1}]);"
-		],
-		"description": "Generates a React.useEffect() function."
-	},
-	"XADocs": {
-		"prefix": "doc",
-		"body": [ "/**", " * ## ${0}", " */" ],
-		"description": "Generates a documentation comments. /** ... */"
-	},
-	"XACDM": {
-		"prefix": "cdm",
-		"body": [ "componentDidMount() {", "    ${0}", "}" ],
-		"description": "Generates a componentDidMount lifecycle method."
-	},
-	"XACDU": {
-		"prefix": "cdu",
-		"body": [
-			"// https://reactjs.org/docs/react-component.html#componentdidupdate",
-			"componentDidUpdate(prevProps: I${1}, prevState: I${1}) {",
-			"    ${2}",
-			"}"
-		],
-		"description": "Generates a componentDidUpdate lifecycle method."
-	},
-	"XADeriv": {
-		"prefix": "deriv",
-		"body": [
-			"// https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops",
-			"static getDerivedStateFromProps(props: I${1}, state: I${1}) {",
-			"    ${2}",
-			"    return state;",
-			"}"
-		],
-		"description": "Generates a componentDidMount lifecycle method."
-	},
-	"XADAOFoo": {
-		"prefix": "daofoo",
-		"body": [
-			"public static async ${1} (): Promise<${2}> {",
-			"    const request: AxiosPromise<${3}> = axios.getInstance().${4}(`${this.base}`)",
-			"    const response: AxiosResponse<${3}> = await request;",
-			"    const ${5}",
-			"}"
-		],
-		"description": "Generates a componentDidMount lifecycle method."
-	}
+    "XAContextGenerator": {
+        "prefix": "ctx",
+        "body": [
+            "import { Context, createContext } from \"react\";",
+            "",
+            "/**",
+            " * ## ${1}Context",
+            " */",
+            "export const ${1}Context: Context<${2}> = createContext<${2}>({});",
+            "",
+            "${1}Context.displayName = \"${1}Context\";"
+        ],
+        "description": "Creates a context snippet that you can export and use in other places."
+    },
+    "XAContextGeneratorWComponent": {
+        "prefix": "ctxwc",
+        "body": [
+            "import React, { Context, createContext, useState } from \"react\";",
+            "import { I${1}Context } from \"../Interface/I${1}Context.interface.ts\"",
+            "",
+            "/**",
+            " * ## ${1}Context",
+            " */",
+            "export const ${1}Context: Context<${2}> = createContext<${2}>({});",
+            "",
+            "${1}Context.displayName = \"${1}Context\";",
+            "",
+            "interface I${3}Props {}",
+            "",
+            "/**",
+            " * ## ${$1} context wrapper component",
+            " * ",
+            " */",
+            "export const ${3}: React.FC<I${3}Props> = () => {",
+            "   const [${4}, set_${4}] = useState<${5}>(${6});",
+            "",
+            "   const ${7} = (): ${8} => {",
+            "       ${9}",
+            "   }",
+            "",
+            "   return (",
+            "       <${1}Context.Provider value={{",
+            "           ${7}",
+            "       }}>",
+            "           <${1}Context.Consumer>",
+            "               {(ctxValue: I${1}Context) => props.children}",
+            "           <${1}Context.Consumer/>",
+            "       <${1}Context.Provider/>",
+            "   )",
+            "}"
+        ],
+        "description": "Creates a context and a component that provides it with a value."
+    },
+    "XAImportCss": {
+        "prefix": "iml",
+        "body": [ "import \"./Less${0}\";" ],
+        "description": "Starts the import line of the css file for a view component."
+    },
+    "XAReactClass": {
+        "prefix": "cc",
+        "body": [
+            "import React from \"react\";",
+            "import IError from \"xa-generics\"",
+            "",
+            "export type I${0}Props = {}",
+            "",
+            "export interface I${0}State {",
+            "    loading: boolean;",
+            "    error: IError;",
+            "}",
+            "",
+            "class ${0} extends React.Component<I${0}Props, I${0}State> {",
+            "    state: I${0}State = {",
+            "        loading: true,",
+            "        error: null,",
+            "    };",
+            "",
+            "    render() {",
+            "        return (",
+            "           <div>",
+            "               ",
+            "           </div>",
+            "        );",
+            "    }",
+            "}",
+            "",
+            "export default ${0};"
+        ],
+        "description": "Generates a react class component."
+    },
+    "XAReactClassRedux": {
+        "prefix": "ccr",
+        "body": [
+            "import React from \"react\";",
+            "import { connect } from \"react-redux\";",
+            "import IError from \"xa-generics\";",
+            "",
+            "export type I${0}Props = IReduxState & IReduxAction & {}",
+            "",
+            "export interface I${0}State {",
+            "    loading: boolean;",
+            "    error: IError;",
+            "}",
+            "",
+            "class ${0} extends React.Component<I${0}Props, I${0}State> {",
+            "    state: I${0}State = {",
+            "        loading: true,",
+            "        error: null,",
+            "    };",
+            "",
+            "    render() {",
+            "        return (",
+            "           <div>",
+            "               ",
+            "           </div>",
+            "        );",
+            "    }",
+            "}",
+            "",
+            "interface IReduxState {}",
+            "",
+            "const mstp = (state, {}): IReduxState => {return {}};",
+            "",
+            "interface IReduxAction {}",
+            "",
+            "const mdtp = (dispatch, {}): IReduxAction => {return {}};",
+            "",
+            "export default connect(mstp,mdtp)(${0});"
+        ],
+        "description": "Generates a react class component with redux."
+    },
+    "XAReactMapStateToProps": {
+        "prefix": "mstp",
+        "body": [
+            "interface IReduxState {}",
+            "",
+            "const mstp = (state, {}): IReduxState => {return {}};"
+        ],
+        "description": "Generates a react class component with redux"
+    },
+    "XAReactMapDispatchToProps": {
+        "prefix": "mdtp",
+        "body": [
+            "interface IReduxAction {}",
+            "",
+            "const mdtp = (dispatch, {}): IReduxAction => {return {}};"
+        ],
+        "description": "Generates a react class component with redux"
+    },
+    "XAReactRedux": {
+        "prefix": "redux",
+        "body": [
+            "interface IReduxState {}",
+            "",
+            "const mstp = (state, {}): IReduxState => {return {}};",
+            "",
+            "interface IReduxAction {}",
+            "",
+            "const mdtp = (dispatch, {}): IReduxAction => {return {}};",
+            "",
+            "export default connect(mstp,mdtp)(${0});"
+        ],
+        "description": "Generates a react class component with redux"
+    },
+    "XAImportReact": {
+        "prefix": "imr",
+        "body": "import React from \"react\";",
+        "description": "Imports React."
+    },
+    "XAConnect": {
+        "prefix": "conn",
+        "body": "import { connect } from \"react-redux\";",
+        "description": "Imports the { connect } from react-redux."
+    },
+    "XAErrorProp": {
+        "prefix": "er",
+        "body": "error={${1}props.error}",
+        "description": "Generates error={props.error}."
+    },
+    "XAErrorAndLoadingState": {
+        "prefix": "el",
+        "body": [
+            "const [error, set_error] = useState<IError>(null);",
+            "const [loading, set_loading] = useState<ILoading>(null);"
+        ],
+        "description": "Generates an error and loading state in a functional component (hook-based)."
+    },
+    "XAReactStatelessComponentInheritor": {
+        "prefix": "sfci",
+        "body": [
+            "import React from \"react\";",
+            "import {I${0}Props, I${0}State} from \"../Controller/${0}.controller\"",
+            "",
+            "export type I${1}Props = I${0}Props & I${0}State & {};",
+            "",
+            "const ${1}: React.FC<I${1}Props> = (props): React.ReactElement => {",
+            "    return (",
+            "       <div>",
+            "           ",
+            "       </div>",
+            "    );",
+            "}",
+            "",
+            "export default ${1};"
+        ],
+        "description": "(Class-based ctrl) => Generates a react function component which inherits cloned props and state from parent component."
+    },
+    "XAReactStatelessComponentInheritorFromFunctionControllerType": {
+        "prefix": "sfhci",
+        "body": [
+            "import React from \"react\";",
+            "import { I${0}Props } from \"../Controller/${0}.controller\"",
+            "",
+            "export interface I${1}Props extends I${0}Props {};",
+            "",
+            "const ${1}: React.FC<I${1}Props> = (props): React.ReactElement => {",
+            "    return (",
+            "       <div>",
+            "           ",
+            "       </div>",
+            "    );",
+            "}",
+            "",
+            "export default ${1};"
+        ],
+        "description": "(Hook-based ctrl) => Generates a react function component which inherits cloned props from parent component."
+    },
+    "XAReactStatelessComponent": {
+        "prefix": "sfc",
+        "body": [
+            "import React from \"react\";",
+            "",
+            "export interface I${0}Props {};",
+            "",
+            "const ${0}: React.FC<I${0}Props> = (props): React.ReactElement => {",
+            "    return (",
+            "        <div>",
+            "            ",
+            "        </div>",
+            "    );",
+            "}",
+            "",
+            "export default ${0};"
+        ],
+        "description": "Generates a react function component which inherits cloned props and state from parent component."
+    },
+    "XAReactFunctionCmpRedux": {
+        "prefix": "sfcr",
+        "body": [
+            "import React from \"react\";",
+            "import { connect } from \"react-redux\";",
+            "import IError from \"xa-generics\";",
+            "",
+            "export type I${0}Props = IReduxState & IReduxAction & {}",
+            "",
+            "const ${0}: React.FC<I${0}Props> = (props): React.ReactElement => {",
+            "    return (",
+            "       <div>",
+            "            ",
+            "       </div>",
+            "    );",
+            "}",
+            "",
+            "interface IReduxState {}",
+            "",
+            "const mstp = (state, {}): IReduxState => {return {}};",
+            "",
+            "interface IReduxAction {}",
+            "",
+            "const mdtp = (dispatch, {}): IReduxAction => {return {}};",
+            "",
+            "export default connect(mstp,mdtp)(${0});"
+        ],
+        "description": "Generates a react function component with redux."
+    },
+    "XAReactReducer": {
+        "prefix": "reducer",
+        "body": [
+            "import types from \"../../Store/actions/actionTypes\";",
+            "import IActions from \"../../Interfaces/IActions\"",
+            "",
+            "export interface I${1}State {}",
+            "",
+            "function Init(): I${1}State {",
+            "    return {}",
+            "}",
+            "",
+            "interface I${1}Actions extends IActions, I${1}State {}",
+            "",
+            "const ${1} = (state: I${1}State = Init(), action: I${1}Actions): I${1}State => {",
+            "    switch(action.type) {",
+            "        case types.${0}:",
+            "            return {...state, ...{}}",
+            "        default: return state;",
+            "    }",
+            "}",
+            "",
+            "export default ${1};"
+        ],
+        "description": "Generates a react function component which inherits cloned props and state from parent component."
+    },
+    "XAReactDAO": {
+        "prefix": "dao",
+        "body": [
+            "import axios from \"xa-generics\"",
+            "import {AxiosPromise, AxiosResponse} from \"axios\"",
+            "",
+            "export default abstract class ${1}DAO {",
+            "    private static readonly base: string = \"${2}\"",
+            "",
+            "   ${3}",
+            "}"
+        ],
+        "description": "Generates a Data Access Object for an API."
+    },
+    "XAReactModel": {
+        "prefix": "model",
+        "body": [
+            "import { dataSetter } from \"xa-generics\";",
+            "",
+            "export default class ${1}Model {",
+            "",
+            "    constructor(${2}?: I${2}) {",
+            "        if (${2}) {",
+            "            for (let property in ${2}) {",
+            "                this[property] = dataSetter(this[property], ${2}[property]);",
+            "            }",
+            "        }",
+            "    }",
+            "}"
+        ],
+        "description": "Generates a Model."
+    },
+    "XAReactInterface": {
+        "prefix": "inf",
+        "body": [ "export interface ${0} {}" ],
+        "description": "Generates an interface."
+    },
+    "XAReactSetState": {
+        "prefix": "ss",
+        "body": [ "this.setState({})" ],
+        "description": "Generates a setState function."
+    },
+    "XAReactSetStateCB": {
+        "prefix": "ssc",
+        "body": [ "this.setState({}, () => {});" ],
+        "description": "Generates a setState function with a callback."
+    },
+    "XAReactFunction": {
+        "prefix": "foo",
+        "body": [ "const ${1} = (${3}): ${2} => {", "    ", "};" ],
+        "description": "Generates a named function."
+    },
+    "XAExportReactFunction": {
+        "prefix": "efoo",
+        "body": [ "export const ${1} = (${3}): ${2} => {", "    ", "};" ],
+        "description": "Generates an exported and named function."
+    },
+    "XAReactMathF": {
+        "prefix": "floor",
+        "body": [ "Math.floor(${1});" ],
+        "description": "Generates a Math.floor() function."
+    },
+    "XAUseState": {
+        "prefix": "ust",
+        "body": [ "const [${1}, set_${1}] = useState(${2});" ],
+        "description": "Generates a useState() function."
+    },
+    "XAUseEffect": {
+        "prefix": "usef",
+        "body": [
+            "useEffect(() => {",
+            "    ${2}",
+            "    return () => {}",
+            "   //eslint-disable-next-line",
+            "}, [${1}]);"
+        ],
+        "description": "Generates a React.useEffect() function."
+    },
+    "XAUseEffectNoComment": {
+        "prefix": "usefnc",
+        "body": [ "useEffect(${1}, [${2}]);" ],
+        "description": "Generates a React.useEffect() function."
+    },
+    "XADocs": {
+        "prefix": "doc",
+        "body": [ "/**", " * ## ${0}", " */" ],
+        "description": "Generates a documentation comments. /** ... */"
+    },
+    "XACDM": {
+        "prefix": "cdm",
+        "body": [ "componentDidMount() {", "    ${0}", "}" ],
+        "description": "Generates a componentDidMount lifecycle method."
+    },
+    "XACDU": {
+        "prefix": "cdu",
+        "body": [
+            "// https://reactjs.org/docs/react-component.html#componentdidupdate",
+            "componentDidUpdate(prevProps: I${1}, prevState: I${1}) {",
+            "    ${2}",
+            "}"
+        ],
+        "description": "Generates a componentDidUpdate lifecycle method."
+    },
+    "XADeriv": {
+        "prefix": "deriv",
+        "body": [
+            "// https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops",
+            "static getDerivedStateFromProps(props: I${1}, state: I${1}) {",
+            "    ${2}",
+            "    return state;",
+            "}"
+        ],
+        "description": "Generates a componentDidMount lifecycle method."
+    },
+    "XADAOFoo": {
+        "prefix": "daofoo",
+        "body": [
+            "public static async ${1} (): Promise<${2}> {",
+            "    const request: AxiosPromise<${3}> = axios.getInstance().${4}(`${this.base}`)",
+            "    const response: AxiosResponse<${3}> = await request;",
+            "    const ${5}",
+            "}"
+        ],
+        "description": "Generates a componentDidMount lifecycle method."
+    }
 }

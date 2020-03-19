@@ -24,10 +24,9 @@ Sadly, Microsoft still doesn't support private extensions so here it is...
 |sfci            |Generates a function component that inherits state and props from its Controller class. |
 |reducer         |Generates a reducer with initial state and interfaces.       |
 |dao             |Generates a data access object for an API. 				   |
-|cdao            |Generates a data access object for an API in a component.    |
 |model           |Generates a model for some API data.						   |
 |er              |error={props.error} || error={this.props.error}              |
-|e               |Generates an error and a loading state, using react hook.    |
+|el              |Generates an error and a loading state, using react hook.    |
 |inf             |Generates an interface of some type.						   |
 |ss              |Generates a setState function.						       |
 |ssc             |Generates a setState function with a callback.			   |
@@ -36,11 +35,13 @@ Sadly, Microsoft still doesn't support private extensions so here it is...
 |floor           |Generates a Math.floor() function.            			   |
 |ust             |Generates a React.useState instance.            			   |
 |usef            |Generates a React.useEffect instance.            			   |
+|usefnc          |Generates a React.useEffect instance without comment.        |
 |doc             |Generates a javascript documentation.            			   |
 |cdm             |Generates a componentDidMount lifecycle method.              |
 |cdu             |Generates a componentDidUpdate lifecycle method. 			   |
 |deriv           |Generates a static getDerivedStateFromProps method.		   |
 |daofoo          |Generates an async function to access an API in the DAO.     |
+|cd              |Generats a cloneDeep import of lodash                        |
 
 # Repository URLs
 
