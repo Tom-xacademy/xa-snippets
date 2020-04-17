@@ -41,6 +41,7 @@ Sadly, Microsoft still doesn't support private extensions so here it is...
 |cdu             |Generates a componentDidUpdate lifecycle method. 			   |
 |deriv           |Generates a static getDerivedStateFromProps method.		   |
 |daofoo          |Generates an async function to access an API in the DAO.     |
+|mdaofoo         |Generates an modelizing DAO function to load some list.      |
 |cd              |Generats a cloneDeep import of lodash                        |
 
 # Repository URLs

@@ -370,11 +370,13 @@
     "XAUseEffect": {
         "prefix": "usef",
         "body": [
-            "useEffect(() => {",
-            "    ${2}",
-            "    return () => {}",
-            "   //eslint-disable-next-line",
-            "}, [${1}]);"
+            "useEffect(",
+            "   () => {",
+            "       ${2}",
+            "       return () => {}",
+            "   },",
+            "//eslint-disable-next-line",
+            "[${1}]);"
         ],
         "description": "Generates a React.useEffect() function."
     },
@@ -395,19 +397,13 @@
     },
     "XACDU": {
         "prefix": "cdu",
-        "body": [
-            "// https://reactjs.org/docs/react-component.html#componentdidupdate",
-            "componentDidUpdate(prevProps: I${1}, prevState: I${1}) {",
-            "    ${2}",
-            "}"
-        ],
+        "body": [ "componentDidUpdate(prevProps: I${1}, prevState: I${2}) {", "    ${2}", "}" ],
         "description": "Generates a componentDidUpdate lifecycle method."
     },
     "XADeriv": {
         "prefix": "deriv",
         "body": [
-            "// https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops",
-            "static getDerivedStateFromProps(props: I${1}, state: I${1}) {",
+            "static getDerivedStateFromProps(props: I${1}, state: I${2}) {",
             "    ${2}",
             "    return state;",
             "}"
@@ -420,7 +416,18 @@
             "public static async ${1} (): Promise<${2}> {",
             "    const request: AxiosPromise<${3}> = axios.getInstance().${4}(`${this.base}`)",
             "    const response: AxiosResponse<${3}> = await request;",
-            "    const ${5}",
+            "    ${5}",
+            "}"
+        ],
+        "description": "Generates a DAO request method."
+    },
+    "XADAOFooModels": {
+        "prefix": "mdaofoo",
+        "body": [
+            "public static async get${1} (): Promise<${2}[]> {",
+            "    const request: AxiosPromise<IDynamicObject[]> = axios.getInstance().get(`${this.base}`)",
+            "    const response: AxiosResponse<IDynamicObject[]> = await request;",
+            "    return response.data.map((element: IDynamicObject) => new ${2}(element));",
             "}"
         ],
         "description": "Generates a componentDidMount lifecycle method."
