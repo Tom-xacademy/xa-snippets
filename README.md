@@ -16,6 +16,8 @@ Sadly, Microsoft still doesn't support private extensions so here it is...
 |mstp            |Generates a mapStateToProps function in the component.       |
 |mdtp            |Generates a mapDispatchToProps function in the component.    |
 |conn            |Imports the react-redux connect function from the module.    |
+|form            |Generates a form hook state with error and loading included. |
+|onChange        |Generates an onChange property with the changeHandler impl.  |
 |sfc             |Generates a simple function component with its own type.     |
 |imr             |Import the React package in the file.                        |
 |iml             |Starts the import line of a css file in the view.            |
@@ -26,12 +28,14 @@ Sadly, Microsoft still doesn't support private extensions so here it is...
 |dao             |Generates a data access object for an API. 				   |
 |model           |Generates a model for some API data.						   |
 |er              |error={props.error} || error={this.props.error}              |
+|eli             |Imports the error and loading interfaces for react hooks.    |
 |el              |Generates an error and a loading state, using react hook.    |
 |inf             |Generates an interface of some type.						   |
 |ss              |Generates a setState function.						       |
 |ssc             |Generates a setState function with a callback.			   |
-|fnc             |Generates a named function with a return type.			   |
-|efnc            |Generates an exported and named function with a return type. |
+|foo             |Generates a named function with a return type.			   |
+|efoo            |Generates an exported and named function with a return type. |
+|egfoo           |Generates an exported and named function with a return type and a generic interface param. |
 |floor           |Generates a Math.floor() function.            			   |
 |ust             |Generates a React.useState instance.            			   |
 |usef            |Generates a React.useEffect instance.            			   |
@@ -43,6 +47,11 @@ Sadly, Microsoft still doesn't support private extensions so here it is...
 |daofoo          |Generates an async function to access an API in the DAO.     |
 |mdaofoo         |Generates an modelizing DAO function to load some list.      |
 |cd              |Generats a cloneDeep import of lodash                        |
+|map             |Generats a map import of lodash                              |
+|uniqarr         |Generats a Set with Array.from to create a unique array.     |
+|uniqarrobj      |Generates a unique array with Set, Array.from() and .flat()  that have object elements.   |
+|for             |Generates a for loop with 'of'                               |
+|forin           |Generates a for loop with 'in';                              |
 
 # Repository URLs
 
