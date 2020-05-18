@@ -17,7 +17,7 @@
         "prefix": "ctxwc",
         "body": [
             "import React, { Context, createContext, useState } from \"react\";",
-            "import { I${1}Context } from \"../Interface/I${1}Context.interface.ts\"",
+            "import { I${1}Context } from \"../Interface/I${1}Context.interface\"",
             "",
             "/**",
             " * ## ${1}Context",
@@ -33,7 +33,7 @@
             " * ",
             " */",
             "export const ${3}: React.FC<I${3}Props> = () => {",
-            "   const [${4}, set_${4}] = useState<${5}>(${6});",
+            "   const [${4}, set${4}] = useState<${5}>(${6});",
             "",
             "   const ${7} = (): ${8} => {",
             "       ${9}",
@@ -45,8 +45,8 @@
             "       }}>",
             "           <${1}Context.Consumer>",
             "               {(ctxValue: I${1}Context) => props.children}",
-            "           <${1}Context.Consumer/>",
-            "       <${1}Context.Provider/>",
+            "           </${1}Context.Consumer>",
+            "       </${1}Context.Provider>",
             "   )",
             "}"
         ],
@@ -54,7 +54,7 @@
     },
     "XAImportCss": {
         "prefix": "iml",
-        "body": [ "import \"./Less${0}\";" ],
+        "body": ["import \"./Less${0}\";"],
         "description": "Starts the import line of the css file for a view component."
     },
     "XAReactClass": {
@@ -203,10 +203,14 @@
     "XAErrorAndLoadingState": {
         "prefix": "el",
         "body": [
-            "const [ error, set_error ] = useState<IError>(null);",
-            "const [ loading, set_loading ] = useState<ILoading>(null);"
+            "const [ error, setError ] = useState<IError>(null);",
+            "const [ loading, setLoading ] = useState<ILoading>(false);"
         ],
         "description": "Generates an error and loading state in a functional component (hook-based)."
+    },
+    "ImportErrorAndLoading": {
+        "prefix": "iel",
+        "body": ["import { IError, ILoading } from \"xa-generics\""]
     },
     "XAReactStatelessComponentInheritor": {
         "prefix": "sfci",
@@ -272,7 +276,7 @@
         "body": [
             "import React from \"react\";",
             "import { connect } from \"react-redux\";",
-            "import IError from \"xa-generics\";",
+            "import { IError } from \"xa-generics\";",
             "",
             "export type I${0}Props = IReduxState & IReduxAction & {}",
             "",
@@ -325,7 +329,7 @@
     "XAReactDAO": {
         "prefix": "dao",
         "body": [
-            "import axios from \"xa-generics\"",
+            "import { axios } from \"xa-generics\"",
             "import { AxiosPromise, AxiosResponse } from \"axios\"",
             "",
             "export default abstract class ${1}DAO {",
@@ -340,12 +344,12 @@
         "prefix": "model",
         "body": [
             "import { ModelConstructor } from \"xa-generics\";",
-            "import { IDynamicObject } from \"xa-generics\"",
             "",
-            "export default class ${1}Model {",
-            "    constructor(data?: IDynamicObject) {",
+            "export class ${1}Model {",
+            "",
+            "    constructor(data?: I${2}) {",
             "        if (!data) return;",
-            "        ModelConstructor(data, this);",
+            "        ModelConstructor(data, this)",
             "    }",
             "    ${2}",
             "}"
@@ -354,52 +358,60 @@
     },
     "XAReactInterface": {
         "prefix": "inf",
-        "body": [ "export interface ${0} {}" ],
+        "body": ["export interface ${0} {}"],
         "description": "Generates an interface."
+    },
+    "XATypeDef": {
+        "prefix": "typ",
+        "body": ["export type ${1} = ${2}"]
     },
     "XAReactSetState": {
         "prefix": "ss",
-        "body": [ "this.setState({})" ],
+        "body": ["this.setState({})"],
         "description": "Generates a setState function."
     },
     "XAReactSetStateCB": {
         "prefix": "ssc",
-        "body": [ "this.setState({}, () => {});" ],
+        "body": ["this.setState({}, () => {});"],
         "description": "Generates a setState function with a callback."
+    },
+    "XAGenericFunction": {
+        "prefix": "tfoo",
+        "body": ["const ${1} = <T>(${3}): ${2} => {", "    ", "};"],
+        "description": "Generates a named function with a generic parameter."
     },
     "XAReactFunction": {
         "prefix": "foo",
-        "body": [ "const ${1} = (${3}): ${2} => {", "    ", "};" ],
+        "body": ["const ${1} = (${3}): ${2} => {", "    ", "};"],
         "description": "Generates a named function."
     },
     "XAExportReactFunction": {
         "prefix": "efoo",
-        "body": [ "export const ${1} = (${3}): ${2} => {", "    ", "};" ],
+        "body": ["export const ${1} = (${3}): ${2} => {", "    ", "};"],
         "description": "Generates an exported and named function."
     },
     "XAExportGenerictFunction": {
         "prefix": "egfoo",
-        "body": [ "export const ${1} = <T = ${2}>(${4}): ${3} => {", "    ", "};" ],
+        "body": ["export const ${1} = <T = ${2}>(${4}): ${3} => {", "    ", "};"],
         "description": "Generates an exported and named function."
     },
     "XAReactMathF": {
         "prefix": "floor",
-        "body": [ "Math.floor(${1});" ],
+        "body": ["Math.floor(${1});"],
         "description": "Generates a Math.floor() function."
     },
     "XAUseState": {
         "prefix": "ust",
-        "body": [ "const [${1}, set${1}] = useState<${3}>(${2});" ],
+        "body": ["const [${1}, set${1}] = useState<${3}>(${2});"],
         "description": "Generates a useState() function."
     },
     "XAUseEffect": {
         "prefix": "usef",
         "body": [
-            "useEffect(",
-            "   () => {",
-            "       ${2}",
-            "       return () => {}",
-            "   },",
+            "useEffect(() => {",
+            "    ${2}",
+            "    return () => {}",
+            "},",
             "//eslint-disable-next-line",
             "[${1}]);"
         ],
@@ -407,22 +419,22 @@
     },
     "XAUseEffectNoComment": {
         "prefix": "usefnc",
-        "body": [ "useEffect(${1}, [${2}]);" ],
+        "body": ["useEffect(${1}, [${2}]);"],
         "description": "Generates a React.useEffect() function."
     },
     "XADocs": {
         "prefix": "doc",
-        "body": [ "/**", " * ## ${0}", " */" ],
+        "body": ["/**", " * ## ${0}", " */"],
         "description": "Generates a documentation comments. /** ... */"
     },
     "XACDM": {
         "prefix": "cdm",
-        "body": [ "componentDidMount() {", "    ${0}", "}" ],
+        "body": ["componentDidMount() {", "    ${0}", "}"],
         "description": "Generates a componentDidMount lifecycle method."
     },
     "XACDU": {
         "prefix": "cdu",
-        "body": [ "componentDidUpdate(prevProps: I${1}, prevState: I${2}) {", "    ${2}", "}" ],
+        "body": ["componentDidUpdate(prevProps: I${1}, prevState: I${2}) {", "    ${2}", "}"],
         "description": "Generates a componentDidUpdate lifecycle method."
     },
     "XADeriv": {
@@ -441,30 +453,19 @@
             "public static async ${1} (): Promise<${2}> {",
             "    const request: AxiosPromise<${3}> = axios.getInstance().${4}(`${this.base}`)",
             "    const response: AxiosResponse<${3}> = await request;",
-            "    ${5}",
-            "}"
-        ],
-        "description": "Generates a DAO request method."
-    },
-    "XADAOFooModels": {
-        "prefix": "mdaofoo",
-        "body": [
-            "public static async get${1} (): Promise<${2}[]> {",
-            "    const request: AxiosPromise<IDynamicObject[]> = axios.getInstance().get(`${this.base}`)",
-            "    const response: AxiosResponse<IDynamicObject[]> = await request;",
-            "    return response.data.map((element: IDynamicObject) => new ${2}(element));",
+            "    return ${5}",
             "}"
         ],
         "description": "Generates a componentDidMount lifecycle method."
     },
     "XALodashCloneDeep": {
         "prefix": "cd",
-        "body": [ "import { cloneDeep } from \"lodash\"" ],
+        "body": ["import { cloneDeep } from \"lodash\""],
         "description": "Generates a lodash clone deep import."
     },
     "XALodashMap": {
         "prefix": "map",
-        "body": [ "import { map } from \"lodash\"" ],
+        "body": ["import { map } from \"lodash\""],
         "description": "Generates a lodash map import."
     },
     "UniqArray": {
@@ -484,12 +485,12 @@
     },
     "ForLoop": {
         "prefix": "for",
-        "body": [ "for (let ${2} of ${1} {", "${3}", "}" ],
+        "body": ["for (let ${2} of ${1} {", "${3}", "}"],
         "description": "Generates a for loop with 'of'"
     },
     "ForLoopIn": {
         "prefix": "forin",
-        "body": [ "for (let ${2} in ${1} {", "${3}", "}" ],
+        "body": ["for (let ${2} in ${1} {", "${3}", "}"],
         "description": "Generates a for loop with 'in'"
     }
 }

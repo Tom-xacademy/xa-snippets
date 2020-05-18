@@ -1,7 +1,7 @@
 {
     "name": "xasnippets",
     "description": "React-typescript code snippets for XAcademy.",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "displayName": "React - Typescript snippets (XAcademy)",
     "publisher": "Tomi",
     "icon": "images/react.png",
@@ -21,7 +21,9 @@
     "engines": {
         "vscode": "0.10.x"
     },
-    "categories": [ "Snippets" ],
+    "categories": [
+        "Snippets"
+    ],
     "contributes": {
         "snippets": [
             {
