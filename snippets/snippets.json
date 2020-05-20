@@ -220,7 +220,7 @@
             "",
             "export type I${1}Props = I${0}Props & I${0}State & {};",
             "",
-            "const ${1}: React.FC<I${1}Props> = (props): React.ReactElement => {",
+            "const ${1}: React.FC<I${1}Props> = (props) => {",
             "    return (",
             "       <div>",
             "           ",
@@ -240,7 +240,7 @@
             "",
             "export interface I${1}Props extends I${0}Props {};",
             "",
-            "const ${1}: React.FC<I${1}Props> = (props): React.ReactElement => {",
+            "const ${1}: React.FC<I${1}Props> = (props) => {",
             "    return (",
             "       <div>",
             "           ",
@@ -259,7 +259,7 @@
             "",
             "export interface I${0}Props {};",
             "",
-            "const ${0}: React.FC<I${0}Props> = (props): React.ReactElement => {",
+            "const ${0}: React.FC<I${0}Props> = (props) => {",
             "    return (",
             "        <div>",
             "            ",
@@ -280,7 +280,7 @@
             "",
             "export type I${0}Props = IReduxState & IReduxAction & {}",
             "",
-            "const ${0}: React.FC<I${0}Props> = (props): React.ReactElement => {",
+            "const ${0}: React.FC<I${0}Props> = (props) => {",
             "    return (",
             "        <div>",
             "            ",
@@ -492,5 +492,22 @@
         "prefix": "forin",
         "body": ["for (let ${2} in ${1} {", "${3}", "}"],
         "description": "Generates a for loop with 'in'"
+    },
+    "PureFunctionComponent": {
+        "prefix": "pfc",
+        "body": [
+            "import React from \"react\";",
+            "",
+            "const ${0}: React.FC = () => {",
+            "    return (",
+            "        <div>",
+            "            ",
+            "        </div>",
+            "    );",
+            "}",
+            "",
+            "export default ${0};"
+        ],
+        "description": "Generates a pure function component"
     }
 }

@@ -19,6 +19,7 @@ Sadly, Microsoft still doesn't support private extensions so here it is...
 | form       | Generates a form hook state with error and loading included.                               |
 | onChange   | Generates an onChange property with the changeHandler impl.                                |
 | sfc        | Generates a simple function component with its own type.                                   |
+| pfc        | Generates a simple function component without props.                                       |
 | imr        | Import the React package in the file.                                                      |
 | iml        | Starts the import line of a css file in the view.                                          |
 | sfr        | Generates a simple function component with redux included.                                 |
