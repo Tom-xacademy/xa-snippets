@@ -509,5 +509,33 @@
             "export default ${0};"
         ],
         "description": "Generates a pure function component"
+    },
+    "ImportExportlessSFC": {
+        "prefix": "sfcnie",
+        "body": [
+            "interface I${0}Props {}",
+            "",
+            "const ${0}: React.FC<${0}> = (props) => {",
+            "    return (",
+            "        <div>",
+            "            ",
+            "        </div>",
+            "    );",
+            "}"
+        ],
+        "description": "Generates a simple function component without import and export"
+    },
+    "ImportExportlessPFC": {
+        "prefix": "pfcnie",
+        "body": [
+            "const ${0}: React.FC = () => {",
+            "    return (",
+            "        <div>",
+            "            ",
+            "        </div>",
+            "    );",
+            "}"
+        ],
+        "description": "Generates a propless function component without import and export"
     }
 }

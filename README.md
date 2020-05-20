@@ -54,6 +54,8 @@ Sadly, Microsoft still doesn't support private extensions so here it is...
 | uniqarrobj | Generates a unique array with Set, Array.from() and .flat() that have object elements.     |
 | for        | Generates a for loop with 'of'                                                             |
 | forin      | Generates a for loop with 'in';                                                            |
+| sfcnie     | Generates a simple function component without import and export in the file.               |
+| pfcnie     | Generates a propless function component without import and export in the file.             |
 
 # Repository URLs
 
