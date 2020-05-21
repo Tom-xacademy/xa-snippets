@@ -515,7 +515,7 @@
         "body": [
             "interface I${0}Props {}",
             "",
-            "const ${0}: React.FC<${0}> = (props) => {",
+            "const ${0}: React.FC<I${0}Props> = (props) => {",
             "    return (",
             "        <div>",
             "            ",
