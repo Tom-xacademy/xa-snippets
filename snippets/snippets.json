@@ -470,7 +470,7 @@
     },
     "UniqArray": {
         "prefix": "uniqarr",
-        "body": "Array.from(new Set(${}))",
+        "body": "Array.from(new Set(${0}))",
         "description": "Generates an Array.from with Set to create an unique array from primite type array."
     },
     "UniqArrayWithObject": {
