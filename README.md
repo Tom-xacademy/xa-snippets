@@ -1,9 +1,10 @@
 # Warning
 
-This extension was created based on the folder and component structure we're using.
-Hence, the imports are most likely going to point to non-existent files for others.
+This extension was created based on the folder and component structure we're using
+at the company, so some of the snippets may contain imports that will point
+to non-existent files for you.
 
-Sadly, Microsoft still doesn't support private extensions so here it is...
+This is still released this way (instead of vsce packaging) because I didn't want to bother with copy-pasting and Microsoft still doesn't support private extensions, unfortunately. Regardless, you may find most of these useful but you can also feel free to fork it and create your own version, or just create an issue on GitHub and I'll see if I can fix/change what you need.
 
 # Commands
 
@@ -28,9 +29,9 @@ Sadly, Microsoft still doesn't support private extensions so here it is...
 | reducer    | Generates a reducer with initial state and interfaces.                                     |
 | dao        | Generates a data access object for an API.                                                 |
 | model      | Generates a model for some API data.                                                       |
-| er         | error={props.error}                                                                        |  | error={this.props.error} |
+| er         | error={props.error}                                                                        |
 | eli        | Imports the error and loading interfaces for react hooks.                                  |
-| iel        | Imports the error and loading interfaces for react hooks.                                  |
+| iel        | Adds the error and loading props to the interface.                                         |
 | el         | Generates an error and a loading state, using react hook.                                  |
 | inf        | Generates an interface of some type.                                                       |
 | ss         | Generates a setState function.                                                             |

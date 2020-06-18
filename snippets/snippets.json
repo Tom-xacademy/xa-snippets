@@ -194,10 +194,7 @@
     },
     "XAImportErrorAndLoadingState": {
         "prefix": "eli",
-        "body": [
-            "import { ILoading } from \"xa-generics\"",
-            "import { IError } from \"xa-generics\""
-        ],
+        "body": ["import { IError, ILoading } from \"xa-generics\""],
         "description": "Generates an error and loading state in a functional component (hook-based)."
     },
     "XAErrorAndLoadingState": {
@@ -210,7 +207,7 @@
     },
     "ImportErrorAndLoading": {
         "prefix": "iel",
-        "body": ["import { IError, ILoading } from \"xa-generics\""]
+        "body": ["    loading: ILoading;", "    error: IError;"]
     },
     "XAReactStatelessComponentInheritor": {
         "prefix": "sfci",
@@ -332,7 +329,7 @@
             "import { axios } from \"xa-generics\"",
             "import { AxiosPromise, AxiosResponse } from \"axios\"",
             "",
-            "export default abstract class ${1}DAO {",
+            "export abstract class ${1}DAO {",
             "    private static readonly base: string = \"${2}\"",
             "",
             "    ${3}",
@@ -476,7 +473,12 @@
     "UniqArrayWithObject": {
         "prefix": "uniqarrobj",
         "body": [
-            "Array.from(new Set(full_lang_list.flat(1))).map((item: string) => ({",
+            "//Creates an array of objects with unique elements from an array of string arrays.",
+            "//Example: siteLangs: string[][] = [ ['hu','en'], ['ro','en'], ['ru','en'] ]",
+            "//The array of arrays above will be flattened to ['hu','en','ro','en','ru','en'] and then",
+            "//new Set() will turn it into an unique array (so the duplicate 'en' keys would be removed in this case).",
+            "//The rest is then a simple mapping as the unique array is turned into an array of objects.",
+            "Array.from(new Set(${1}.flat(1))).map((item: string) => ({",
             "    id: item,",
             "    name: item.toUpperCase()",
             "}))"
