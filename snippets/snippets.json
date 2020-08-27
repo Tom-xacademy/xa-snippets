@@ -57,6 +57,11 @@
         "body": ["import \"./Less${0}\";"],
         "description": "Starts the import line of the css file for a view component."
     },
+    "XAImportStyleCss": {
+        "prefix": "ims",
+        "body": ["import \"./Style${0}\";"],
+        "description": "Starts the import line of the css file for a view component."
+    },
     "XAReactClass": {
         "prefix": "cc",
         "body": [

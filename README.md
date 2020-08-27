@@ -23,6 +23,7 @@ This is still released this way (instead of vsce packaging) because I didn't wan
 | pfc        | Generates a simple function component without props.                                       |
 | imr        | Import the React package in the file.                                                      |
 | iml        | Starts the import line of a css file in the view.                                          |
+| ims        | Starts the import line of a css file in the view.                                          |
 | sfr        | Generates a simple function component with redux included.                                 |
 | sfhci      | Generates a function component which inherits props from hook controller.                  |
 | sfci       | Generates a function component that inherits state and props from its Controller class.    |
