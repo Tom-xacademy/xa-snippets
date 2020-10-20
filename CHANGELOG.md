@@ -1,3 +1,7 @@
+### v2.6.1
+
+-   Fixed the '\${id}' in daofoo methods not defaulting to 'id' string.
+
 ### v2.6.0
 
 -   Added new **daofoopost** snippet for POST requests.

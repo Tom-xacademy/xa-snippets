@@ -496,7 +496,7 @@
         "prefix": "daofoopatch",
         "body": [
             "public static async update${1} (id: string, data: string): Promise<void> {",
-            "    const request: AxiosPromise<void> = axios.getInstance().patch(`${this.base}/${id}`, data)",
+            "    const request: AxiosPromise<void> = axios.getInstance().patch(`${this.base}/${ id }`, data)",
             "    const response: AxiosResponse<void> = await request;",
             "    return response.data;",
             "}"
@@ -507,7 +507,7 @@
         "prefix": "daofoodelete",
         "body": [
             "public static async remove${1} (id: string): Promise<void> {",
-            "    const request: AxiosPromise<void> = axios.getInstance().delete(`${this.base}/${id}`)",
+            "    const request: AxiosPromise<void> = axios.getInstance().delete(`${this.base}/${ id }}`)",
             "    const response: AxiosResponse<void> = await request;",
             "    return response.data;",
             "}"
@@ -528,8 +528,8 @@
     "XADAOFooGetOne": {
         "prefix": "daofoogetone",
         "body": [
-            "public static async load${1} (): Promise<${2}> {",
-            "    const request: AxiosPromise<IDynamicObject> = axios.getInstance().get(`${this.base}`)",
+            "public static async load${1} (id: string): Promise<${2}> {",
+            "    const request: AxiosPromise<IDynamicObject> = axios.getInstance().get(`${this.base}/${ id }`)",
             "    const response: AxiosResponse<IDynamicObject> = await request;",
             "    return new ${2}(response.data);",
             "}"
