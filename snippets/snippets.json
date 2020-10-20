@@ -481,6 +481,75 @@
         ],
         "description": "Generates a DAO request method."
     },
+    "XADAOFooPost": {
+        "prefix": "daofoopost",
+        "body": [
+            "public static async save${1} (data: string): Promise<void> {",
+            "    const request: AxiosPromise<void> = axios.getInstance().post(`${this.base}`, data)",
+            "    const response: AxiosResponse<void> = await request;",
+            "    return response.data;",
+            "}"
+        ],
+        "description": "Generates a POST DAO request method."
+    },
+    "XADAOFooPatch": {
+        "prefix": "daofoopatch",
+        "body": [
+            "public static async update${1} (id: string, data: string): Promise<void> {",
+            "    const request: AxiosPromise<void> = axios.getInstance().patch(`${this.base}/${id}`, data)",
+            "    const response: AxiosResponse<void> = await request;",
+            "    return response.data;",
+            "}"
+        ],
+        "description": "Generates a PATCH DAO request method."
+    },
+    "XADAOFooDelete": {
+        "prefix": "daofoodelete",
+        "body": [
+            "public static async remove${1} (id: string): Promise<void> {",
+            "    const request: AxiosPromise<void> = axios.getInstance().delete(`${this.base}/${id}`)",
+            "    const response: AxiosResponse<void> = await request;",
+            "    return response.data;",
+            "}"
+        ],
+        "description": "Generates a DELETE DAO request method."
+    },
+    "XADAOFooGet": {
+        "prefix": "daofooget",
+        "body": [
+            "public static async load${1} (): Promise<${2}> {",
+            "    const request: AxiosPromise<IDynamicObject[]> = axios.getInstance().get(`${this.base}`)",
+            "    const response: AxiosResponse<IDynamicObject[]> = await request;",
+            "    return response.data.map((item) => new ${2}(item));",
+            "}"
+        ],
+        "description": "Generates a GET DAO request method, which loads a list."
+    },
+    "XADAOFooGetOne": {
+        "prefix": "daofoogetone",
+        "body": [
+            "public static async load${1} (): Promise<${2}> {",
+            "    const request: AxiosPromise<IDynamicObject> = axios.getInstance().get(`${this.base}`)",
+            "    const response: AxiosResponse<IDynamicObject> = await request;",
+            "    return new ${2}(response.data);",
+            "}"
+        ],
+        "description": "Generates a GET DAO request method, which loads an item of something."
+    },
+    "XADAOBatch": {
+        "prefix": "daofoobatch",
+        "body": [
+            "public static async ${1} (idList: string[]): Promise<void> {",
+            "    const requests: AxiosPromise<${2}>[] = [];",
+            "    for (let id of idList) {",
+            "        requests.push(axios.getInstance().${3}(`${this.base}/${id}`))",
+            "    }",
+            "    await Promise.all(requests);",
+            "    return;",
+            "}"
+        ],
+        "description": "Generates a GET DAO request method, which loads an item of something."
+    },
     "XALodashCloneDeep": {
         "prefix": "cd",
         "body": ["import { cloneDeep } from \"lodash\""],

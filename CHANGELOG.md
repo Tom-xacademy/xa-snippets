@@ -1,3 +1,12 @@
+### v2.6.0
+
+-   Added new **daofoopost** snippet for POST requests.
+-   Added new **daofoopatch** snippet for PATCH requests.
+-   Added new **daofoodelete** snippet for DELETE requests.
+-   Added new **daofooget** snippet for GET requests.
+-   Added new **daofoogetone** snippet for GET request that loads one item.
+-   Added new **daofoobatch** snippet for requests implementing Promise.all() and an id list parameter.
+
 ### v2.5.6
 
 -   Fixed number of cursors for ctx and ctxwc because 2,3, and 4 was basically '\${1}', just with some affix/suffix.
