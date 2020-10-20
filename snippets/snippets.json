@@ -3,11 +3,12 @@
         "prefix": "ctx",
         "body": [
             "import { Context, createContext } from \"react\";",
+            "import { I${1}Context } from \"../Interfaces/I${1}Context.interface\"",
             "",
             "/**",
             " * ## ${1}Context",
             " */",
-            "export const ${1}Context: Context<${2}> = createContext<${2}>({});",
+            "export const ${1}Context: Context<I${1}Context> = createContext<I${1}Context>(null as any);",
             "",
             "${1}Context.displayName = \"${1}Context\";"
         ],
@@ -22,26 +23,26 @@
             "/**",
             " * ## ${1}Context",
             " */",
-            "export const ${1}Context: Context<${2}> = createContext<${2}>({});",
+            "export const ${1}Context: Context<I${1}Context> = createContext<I${1}Context>(null as any);",
             "",
             "${1}Context.displayName = \"${1}Context\";",
             "",
-            "interface I${3}Props {}",
+            "interface I${1}ContextWrapperProps {}",
             "",
             "/**",
             " * ## ${1} context wrapper component",
             " * ",
             " */",
-            "export const ${3}: React.FC<I${3}Props> = (props) => {",
-            "   const [${4}, set${4}] = useState<${5}>(${6});",
+            "export const ${1}ContextWrapper: React.FC<I${1}ContextWrapperProps> = (props) => {",
+            "   const [${2}, set${2}] = useState<${3}>(${4});",
             "",
-            "   const ${7} = (): ${8} => {",
-            "       ${9}",
+            "   const ${5} = (): ${6} => {",
+            "       ${7}",
             "   }",
             "",
             "   return (",
             "       <${1}Context.Provider value={{",
-            "           ${7}",
+            "           ${5}",
             "       }}>",
             "           <${1}Context.Consumer>",
             "               {(ctxValue: I${1}Context) => props.children}",
@@ -212,7 +213,7 @@
     },
     "ImportErrorAndLoading": {
         "prefix": "iel",
-        "body": ["    loading: ILoading;", "    error: IError;"]
+        "body": ["loading: ILoading;", "error: IError;"]
     },
     "XAReactStatelessComponentInheritor": {
         "prefix": "sfci",
@@ -233,6 +234,26 @@
             "export default ${1};"
         ],
         "description": "(Class-based ctrl) => Generates a react function component which inherits cloned props and state from parent component."
+    },
+    "XAReactStatelessComponentInheritorFromViewType": {
+        "prefix": "sfcv",
+        "body": [
+            "import React from \"react\";",
+            "import { I${0}Props } from \"./${1}.view\"",
+            "",
+            "export interface I${1}Props extends I${0}Props {};",
+            "",
+            "const ${1}: React.FC<I${1}Props> = (props) => {",
+            "    return (",
+            "       <div>",
+            "           ",
+            "       </div>",
+            "    );",
+            "}",
+            "",
+            "export default ${1};"
+        ],
+        "description": "(Hook-based view) => Generates a react function component which inherits cloned props from a main view component."
     },
     "XAReactStatelessComponentInheritorFromFunctionControllerType": {
         "prefix": "sfhci",
@@ -353,7 +374,7 @@
             "        if (!data) return;",
             "        ModelConstructor(data, this)",
             "    }",
-            "    ${2}",
+            "    ${3}",
             "}"
         ],
         "description": "Generates a Model."
@@ -379,7 +400,7 @@
     },
     "XAGenericFunction": {
         "prefix": "tfoo",
-        "body": ["const ${1} = <T>(${3}): ${2} => {", "    ", "};"],
+        "body": ["export const ${1} = <T>(${3}): ${2} => {", "    ", "};"],
         "description": "Generates a named function with a generic parameter."
     },
     "XAReactFunction": {
@@ -421,7 +442,7 @@
     },
     "XAUseEffectNoComment": {
         "prefix": "usefnc",
-        "body": ["useEffect(${1}, [${2}]);"],
+        "body": ["const load${1} = (): void => {};", "useEffect(load${1}, [${2}]);"],
         "description": "Generates a React.useEffect() function."
     },
     "XADocs": {
@@ -458,7 +479,7 @@
             "    return ${5}",
             "}"
         ],
-        "description": "Generates a componentDidMount lifecycle method."
+        "description": "Generates a DAO request method."
     },
     "XALodashCloneDeep": {
         "prefix": "cd",
