@@ -1,3 +1,8 @@
+### v2.6.2
+
+-   Fixed the **daofooget** promise return type not defaulting to array.
+-   Changed the **usefnc** default function starting name from 'load' to 'init'. (It's used more often.)
+
 ### v2.6.1
 
 -   Fixed the '\${id}' in daofoo methods not defaulting to 'id' string.

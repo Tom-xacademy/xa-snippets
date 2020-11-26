@@ -442,7 +442,7 @@
     },
     "XAUseEffectNoComment": {
         "prefix": "usefnc",
-        "body": ["const load${1} = (): void => {};", "useEffect(load${1}, [${2}]);"],
+        "body": ["const init${1} = (): void => {};", "useEffect(init${1}, [${2}]);"],
         "description": "Generates a React.useEffect() function."
     },
     "XADocs": {
@@ -517,7 +517,7 @@
     "XADAOFooGet": {
         "prefix": "daofooget",
         "body": [
-            "public static async load${1} (): Promise<${2}> {",
+            "public static async load${1} (): Promise<${2}[]> {",
             "    const request: AxiosPromise<IDynamicObject[]> = axios.getInstance().get(`${this.base}`)",
             "    const response: AxiosResponse<IDynamicObject[]> = await request;",
             "    return response.data.map((item) => new ${2}(item));",
