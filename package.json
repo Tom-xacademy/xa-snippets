@@ -1,16 +1,14 @@
 {
     "name": "xasnippets",
     "description": "React-typescript code snippets for XAcademy.",
-    "version": "2.6.2",
+    "version": "2.7.0",
     "displayName": "React - Typescript snippets (XAcademy)",
     "publisher": "Tomi",
     "icon": "images/react.png",
     "license": "ISC",
     "scripts": {
         "build": "vsce package",
-        "clean": "rm -rf xasnippets-*.vsix",
-        "azure": "vsce publish",
-        "publish": "yarn build && yarn azure && yarn clean"
+        "clean": "rm -rf xasnippets-*.vsix"
     },
     "repository": {
         "type": "git",
