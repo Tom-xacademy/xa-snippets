@@ -143,7 +143,7 @@
             "",
             "const mstp = (state, {}): IReduxState => {return {}};"
         ],
-        "description": "Generates a react class component with redux"
+        "description": "Generates a redux map state to props function in a react component."
     },
     "XAReactMapDispatchToProps": {
         "prefix": "mdtp",
@@ -152,7 +152,7 @@
             "",
             "const mdtp = (dispatch, {}): IReduxAction => {return {}};"
         ],
-        "description": "Generates a react class component with redux"
+        "description": "Generates a redux map dispatch to props function in a react component."
     },
     "XAReactRedux": {
         "prefix": "redux",
@@ -167,7 +167,7 @@
             "",
             "export default connect(mstp,mdtp)(${0});"
         ],
-        "description": "Generates a react class component with redux"
+        "description": "Generates a default export with the mstp and mdtp redux functions implemented above."
     },
     "XAImportReact": {
         "prefix": "imr",
@@ -183,6 +183,11 @@
         "prefix": "er",
         "body": "error={${1}props.error}",
         "description": "Generates error={props.error}."
+    },
+    "XALoadingErrorProp": {
+        "prefix": "per",
+        "body": ["error={error}", "loading={loading}"],
+        "description": "Generates two prop passing lines for a component that passed the useState error and loading states."
     },
     "XAFormStandard": {
         "prefix": "form",
@@ -407,6 +412,11 @@
         "prefix": "foo",
         "body": ["const ${1} = (${3}): ${2} => {", "    ", "};"],
         "description": "Generates a named function."
+    },
+    "XAReactClassFunction": {
+        "prefix": "foo",
+        "body": ["${1} = (${3}): ${2} => {", "    ", "};"],
+        "description": "Generates a named arrow function in a react class."
     },
     "XAExportReactFunction": {
         "prefix": "efoo",

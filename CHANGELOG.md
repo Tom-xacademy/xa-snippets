@@ -1,3 +1,9 @@
+### v2.7.0
+
+-   Added new **ccfoo** snippet to generate an arrow function in react classes.
+-   Added new **per** snippet to generate two lines that passes the local error and loading states (from useState).
+-   Fixed description of **mstp**, **mdtp**, and **redux** snippets.
+
 ### v2.6.2
 
 -   Fixed the **daofooget** promise return type not defaulting to array.

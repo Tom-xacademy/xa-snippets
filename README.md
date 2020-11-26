@@ -65,6 +65,8 @@ This is still released this way (instead of vsce packaging) because I didn't wan
 | forin        | Generates a for loop with 'in';                                                            |
 | sfcnie       | Generates a simple function component without import and export in the file.               |
 | pfcnie       | Generates a propless function component without import and export in the file.             |
+| cfoo         | Generate an arrow function in react classes.                                               |
+| per          | Generate two lines that passes the local error and loading states (from useState).         |
 
 # Repository URLs
 
