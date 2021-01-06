@@ -1,3 +1,10 @@
+### v2.8.0
+
+-   Added **daofoofull** snippet to generate four dao methods at once.
+-   Fixed **daofoodelete** snippet by removing the leftover closing bracket '}' in the url behind 'id'.
+-   Removed 'import React from "react" due to react 17 not needing it any longer.
+-   Added a two json snippets, one for new key-value pair, and one for generating a whole react17 configuration. (You need ts version to be >=4.1.2).
+
 ### v2.7.0
 
 -   Added new **ccfoo** snippet to generate an arrow function in react classes.

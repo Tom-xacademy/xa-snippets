@@ -50,6 +50,7 @@ This is still released this way (instead of vsce packaging) because I didn't wan
 | cdu          | Generates a componentDidUpdate lifecycle method.                                           |
 | deriv        | Generates a static getDerivedStateFromProps method.                                        |
 | daofoo       | Generates an async function to access an API in the DAO.                                   |
+| daofoofull   | Generates four DAO functions for each request type (POST/PATCH/GET/DELETE).                |
 | daofoopost   | Generates a POST-type async function in the DAO.                                           |
 | daofoopatch  | Generates a PATCH-type async function to access an API in the DAO.                         |
 | daofoodelete | Generates a DELETE-type async function to access an API in the DAO.                        |
@@ -67,6 +68,8 @@ This is still released this way (instead of vsce packaging) because I didn't wan
 | pfcnie       | Generates a propless function component without import and export in the file.             |
 | cfoo         | Generate an arrow function in react classes.                                               |
 | per          | Generate two lines that passes the local error and loading states (from useState).         |
+| \_n          | Generate new key-value pair in json files.                                                 |
+| r17settings  | Generate a react17 settings json file along with our own styling/global rules. (TS>=4.1.2) |
 
 # Repository URLs
 
