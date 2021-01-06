@@ -223,7 +223,6 @@
     "XAReactStatelessComponentInheritor": {
         "prefix": "sfci",
         "body": [
-            "import React from \"react\";",
             "import { I${0}Props, I${0}State } from \"../Controller/${0}.controller\"",
             "",
             "export type I${1}Props = I${0}Props & I${0}State & {};",
@@ -243,7 +242,6 @@
     "XAReactStatelessComponentInheritorFromViewType": {
         "prefix": "sfcv",
         "body": [
-            "import React from \"react\";",
             "import { I${0}Props } from \"./${1}.view\"",
             "",
             "export interface I${1}Props extends I${0}Props {};",
@@ -263,7 +261,6 @@
     "XAReactStatelessComponentInheritorFromFunctionControllerType": {
         "prefix": "sfhci",
         "body": [
-            "import React from \"react\";",
             "import { I${0}Props } from \"../Controller/${0}.controller\"",
             "",
             "export interface I${1}Props extends I${0}Props {};",
@@ -283,7 +280,6 @@
     "XAReactStatelessComponent": {
         "prefix": "sfc",
         "body": [
-            "import React from \"react\";",
             "",
             "export interface I${0}Props {};",
             "",
@@ -371,14 +367,14 @@
     "XAReactModel": {
         "prefix": "model",
         "body": [
-            "import { ModelConstructor } from \"xa-generics\";",
+            "import { ModelConstructor, IDynamicObject } from \"xa-generics\";",
             "",
             "export class ${1}Model {",
-            "",
-            "    constructor(data?: I${2}) {",
+            "    constructor(data?: IDynamicObject${2}) {",
             "        if (!data) return;",
             "        ModelConstructor(data, this)",
             "    }",
+            "",
             "    ${3}",
             "}"
         ],
@@ -517,7 +513,7 @@
         "prefix": "daofoodelete",
         "body": [
             "public static async remove${1} (id: string): Promise<void> {",
-            "    const request: AxiosPromise<void> = axios.getInstance().delete(`${this.base}/${ id }}`)",
+            "    const request: AxiosPromise<void> = axios.getInstance().delete(`${this.base}/${ id }`)",
             "    const response: AxiosResponse<void> = await request;",
             "    return response.data;",
             "}"
@@ -559,6 +555,35 @@
             "}"
         ],
         "description": "Generates a GET DAO request method, which loads an item of something."
+    },
+    "XADAOFull": {
+        "prefix": "daofoofull",
+        "body": [
+            "public static async load${1} (): Promise<${2}[]> {",
+            "    const request: AxiosPromise<IDynamicObject[]> = axios.getInstance().get(`${this.base}`)",
+            "    const response: AxiosResponse<IDynamicObject[]> = await request;",
+            "    return response.data.map((item) => new ${2}(item));",
+            "}",
+            "",
+            "public static async save${1} (data: string): Promise<void> {",
+            "    const request: AxiosPromise<void> = axios.getInstance().post(`${this.base}`, data)",
+            "    const response: AxiosResponse<void> = await request;",
+            "    return response.data;",
+            "}",
+            "",
+            "public static async update${1} (id: string, data: string): Promise<void> {",
+            "    const request: AxiosPromise<void> = axios.getInstance().patch(`${this.base}/${ id }`, data)",
+            "    const response: AxiosResponse<void> = await request;",
+            "    return response.data;",
+            "}",
+            "",
+            "public static async remove${1} (id: string): Promise<void> {",
+            "    const request: AxiosPromise<void> = axios.getInstance().delete(`${this.base}/${ id }`)",
+            "    const response: AxiosResponse<void> = await request;",
+            "    return response.data;",
+            "}"
+        ],
+        "description": "Generates all the DAO request methods (POST/GET/PATCH/DELETE)."
     },
     "XALodashCloneDeep": {
         "prefix": "cd",
