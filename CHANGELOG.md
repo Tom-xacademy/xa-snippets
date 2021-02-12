@@ -1,3 +1,7 @@
+### v2.8.1
+
+-   Updated **model** to generate a raw data interface which is inferred from the model values. (You can still use Omit<> on it if you want to exclude (for example) class methods...)
+
 ### v2.8.0
 
 -   Added **daofoofull** snippet to generate four dao methods at once.
