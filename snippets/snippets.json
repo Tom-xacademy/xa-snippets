@@ -367,18 +367,22 @@
     "XAReactModel": {
         "prefix": "model",
         "body": [
-            "import { ModelConstructor, IDynamicObject } from \"xa-generics\";",
+            "import { ModelConstructor } from \"xa-generics\";",
             "",
             "export class ${1}Model {",
-            "    constructor(data?: IDynamicObject${2}) {",
-            "        if (!data) return;",
-            "        ModelConstructor(data, this)",
+            "    constructor(rawData?: IDynamicObject<any>) {",
+            "        if (!rawData) return;",
+            "        const data = rawData as ${1}MData;",
+            "        ModelConstructor(data, this);",
             "    }",
             "",
             "    ${3}",
-            "}"
+            "}",
+            "",
+            "//If you add public methods, you may want to replace the empty string with them!",
+            "export type ${1}MData = Partial<InstanceType<typeof ${1}>>"
         ],
-        "description": "Generates a Model."
+        "description": "Generates a Model with a generic constructor and data interface included (It's inferred from the model values)."
     },
     "XAReactInterface": {
         "prefix": "inf",
