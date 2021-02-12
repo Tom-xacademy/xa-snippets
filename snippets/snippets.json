@@ -367,7 +367,7 @@
     "XAReactModel": {
         "prefix": "model",
         "body": [
-            "import { ModelConstructor } from \"xa-generics\";",
+            "import { ModelConstructor, IDynamicObject } from \"xa-generics\";",
             "",
             "export class ${1}Model {",
             "    constructor(rawData?: IDynamicObject<any>) {",
