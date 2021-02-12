@@ -1,9 +1,7 @@
-### v2.8.2
+### v2.8.1 - 2.8.3
 
--   Fixed missing 'Model' word ending in model raw data inferring interface. (woops?)
-
-### v2.8.1
-
+-   Fixed missing 'Model' word ending in model raw data inferring interface. (whoops?)
+-   Fixed missing IDynamicObject import...
 -   Updated **model** to generate a raw data interface which is inferred from the model values. (You can still use Omit<> on it if you want to exclude (for example) class methods...)
 
 ### v2.8.0
