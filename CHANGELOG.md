@@ -1,3 +1,8 @@
+### v2.9.0
+
+-   Added **t_1** and **t_2** snippets that generate a t() function with ILang interface passed to it.
+-   Added **utrans** snippet that generates a line of useTranslation() destructuring to {t} function.
+
 ### v2.8.1 - 2.8.3
 
 -   Fixed missing 'Model' word ending in model raw data inferring interface. (whoops?)
