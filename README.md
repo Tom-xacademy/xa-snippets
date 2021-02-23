@@ -70,6 +70,9 @@ This is still released this way (instead of vsce packaging) because I didn't wan
 | per          | Generate two lines that passes the local error and loading states (from useState).         |
 | \_n          | Generate new key-value pair in json files.                                                 |
 | r17settings  | Generate a react17 settings json file along with our own styling/global rules. (TS>=4.1.2) |
+| utrans       | Add a line of useTranslation and its {t} function import.                                  |
+| t_1          | Add a line of t() function (type 1) [Object brackets {} and string key]                    |
+| t_2          | Add a line of t() function (type 2) [No object {} brackets and variable as key].           |
 
 # Repository URLs
 

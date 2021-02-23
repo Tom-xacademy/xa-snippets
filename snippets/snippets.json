@@ -673,5 +673,20 @@
             "}"
         ],
         "description": "Generates a propless function component without import and export"
+    },
+    "UseTranslation": {
+        "prefix": "utrans",
+        "body": ["const {t} = useTranslation<ILang>();"],
+        "description": "Add a line of useTranslation and its {t} function import."
+    },
+    "TranslationFunctionType1": {
+        "prefix": "t_1",
+        "body": ["{t<ILang>(\"${1}\")}"],
+        "description": "T=> \"{t<ILang>(\"${1}\")}\""
+    },
+    "TranslationFunctionType2": {
+        "prefix": "t_2",
+        "body": ["t<ILang>(${1})"],
+        "description": "T=> \"t<ILang>(${1})\""
     }
 }
