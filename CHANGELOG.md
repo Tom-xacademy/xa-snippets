@@ -1,3 +1,8 @@
+### v2.9.1
+
+-   Added a use[ContextName] method to the context generator snippet.
+-   Removed the Context.Consumer usage under the providers since they can cause unnecessary re-renders in the children.
+
 ### v2.9.0
 
 -   Added **t_1** and **t_2** snippets that generate a t() function with ILang interface passed to it.
