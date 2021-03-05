@@ -10,14 +10,19 @@
             " */",
             "export const ${1}Context: Context<I${1}Context> = createContext<I${1}Context>(null as any);",
             "",
-            "${1}Context.displayName = \"${1}Context\";"
+            "${1}Context.displayName = \"${1}Context\";",
+            "",
+            "export function use${1}(): I${1}Context {",
+            "    const ctx = useContext(${1}Context);",
+            "    return ctx;",
+            "},"
         ],
         "description": "Creates a context snippet that you can export and use in other places."
     },
     "XAContextGeneratorWComponent": {
         "prefix": "ctxwc",
         "body": [
-            "import React, { Context, createContext, useState } from \"react\";",
+            "import { Context, createContext, useState } from \"react\";",
             "import { I${1}Context } from \"../Interfaces/I${1}Context.interface\"",
             "",
             "/**",
@@ -44,12 +49,15 @@
             "       <${1}Context.Provider value={{",
             "           ${5}",
             "       }}>",
-            "           <${1}Context.Consumer>",
-            "               {(ctxValue: I${1}Context) => props.children}",
-            "           </${1}Context.Consumer>",
+            "           {props.children}",
             "       </${1}Context.Provider>",
             "   )",
-            "}"
+            "}",
+            "",
+            "export function use${1}(): I${1}Context {",
+            "    const ctx = useContext(${1}Context);",
+            "    return ctx;",
+            "},"
         ],
         "description": "Creates a context and a component that provides it with a value."
     },
