@@ -2,7 +2,7 @@
     "XAContextGenerator": {
         "prefix": "ctx",
         "body": [
-            "import { Context, createContext } from \"react\";",
+            "import { Context, createContext, useContext } from \"react\";",
             "import { I${1}Context } from \"../Interfaces/I${1}Context.interface\"",
             "",
             "/**",
@@ -12,17 +12,14 @@
             "",
             "${1}Context.displayName = \"${1}Context\";",
             "",
-            "export function use${1}(): I${1}Context {",
-            "    const ctx = useContext(${1}Context);",
-            "    return ctx;",
-            "},"
+            "export const use${1} = (): I${1}Context => useContext(${1}Context);"
         ],
         "description": "Creates a context snippet that you can export and use in other places."
     },
     "XAContextGeneratorWComponent": {
         "prefix": "ctxwc",
         "body": [
-            "import { Context, createContext, useState } from \"react\";",
+            "import { Context, createContext, useState, useContext } from \"react\";",
             "import { I${1}Context } from \"../Interfaces/I${1}Context.interface\"",
             "",
             "/**",
@@ -32,13 +29,13 @@
             "",
             "${1}Context.displayName = \"${1}Context\";",
             "",
-            "interface I${1}ContextWrapperProps {}",
+            "interface I${1}ContextProviderProps {}",
             "",
             "/**",
-            " * ## ${1} context wrapper component",
+            " * ## ${1} context provider component",
             " * ",
             " */",
-            "export const ${1}ContextWrapper: React.FC<I${1}ContextWrapperProps> = (props) => {",
+            "export const ${1}ContextProvider: React.FC<I${1}ContextProviderProps> = (props) => {",
             "   const [${2}, set${2}] = useState<${3}>(${4});",
             "",
             "   const ${5} = (): ${6} => {",
@@ -54,12 +51,9 @@
             "   )",
             "}",
             "",
-            "export function use${1}(): I${1}Context {",
-            "    const ctx = useContext(${1}Context);",
-            "    return ctx;",
-            "},"
+            "export const use${1} = (): I${1}Context => useContext(${1}Context);"
         ],
-        "description": "Creates a context and a component that provides it with a value."
+        "description": "Creates a context and a wrapper component that provides it with a value."
     },
     "XAImportCss": {
         "prefix": "iml",

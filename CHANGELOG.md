@@ -1,3 +1,8 @@
+### v2.9.2
+
+-   Fixed the useContext function comma bug at the EOL and changed it to arrow function
+-   Changed the ContextXWrapper component default name to ContextXProvider (X is the context name)
+
 ### v2.9.1
 
 -   Added a use[ContextName] method to the context generator snippet.
