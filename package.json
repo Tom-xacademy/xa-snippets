@@ -8,9 +8,7 @@
     "license": "ISC",
     "scripts": {
         "build": "vsce package",
-        "clean": "rm -rf xasnippets-*.vsix",
-        "fh": "fh.sh -nc -nb",
-        "ff": "ff.sh -nc -nb"
+        "clean": "rm -rf xasnippets-*.vsix"
     },
     "repository": {
         "type": "git",
