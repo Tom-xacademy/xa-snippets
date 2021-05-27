@@ -1,3 +1,12 @@
+### v2.10.0
+
+-   Removed export for the createContext line as they shouldn't be used anywhere. Use the 'useExampleContext' exported member instead.
+-   Removed React import line from cc an ccr snippets, though I don't use those at all.
+-   Changed the 'form' snippet snake case to camel case.
+-   Removed extra line above 'sfc'
+-   Added **sfcg** snippet, which generates a function component that takes a generic as its type parameter. Useful for multi-purpose, highly reusable components.
+-   Added **sfcs** snippet, which generates a stateful function component (this includes a loading and error interface import and state, which is good for controller components.)
+
 ### v2.9.3
 
 -   Just release-script related change, nothing to see here...
