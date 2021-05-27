@@ -8,7 +8,7 @@
             "/**",
             " * ## ${1}Context",
             " */",
-            "export const ${1}Context: Context<I${1}Context> = createContext<I${1}Context>(null as any);",
+            "const ${1}Context: Context<I${1}Context> = createContext<I${1}Context>(null as any);",
             "",
             "${1}Context.displayName = \"${1}Context\";",
             "",
@@ -25,7 +25,7 @@
             "/**",
             " * ## ${1}Context",
             " */",
-            "export const ${1}Context: Context<I${1}Context> = createContext<I${1}Context>(null as any);",
+            "const ${1}Context: Context<I${1}Context> = createContext<I${1}Context>(null as any);",
             "",
             "${1}Context.displayName = \"${1}Context\";",
             "",
@@ -68,7 +68,6 @@
     "XAReactClass": {
         "prefix": "cc",
         "body": [
-            "import React from \"react\";",
             "import IError from \"xa-generics\"",
             "",
             "export type I${0}Props = {}",
@@ -100,9 +99,8 @@
     "XAReactClassRedux": {
         "prefix": "ccr",
         "body": [
-            "import React from \"react\";",
             "import { connect } from \"react-redux\";",
-            "import IError from \"xa-generics\";",
+            "import { IError } from \"xa-generics\";",
             "",
             "export type I${0}Props = IReduxState & IReduxAction & {}",
             "",
@@ -195,8 +193,8 @@
         "prefix": "form",
         "body": [
             "const [ form, setForm ] = useState<${1}>(cloneDeep(${2}));",
-            "const [ loading, set_loading ] = useState<ILoading>(null);",
-            "const [ error, set_error ] = useState<IError>(null);"
+            "const [ loading, setLoading ] = useState<ILoading>(null);",
+            "const [ error, setError ] = useState<IError>(null);"
         ],
         "description": "Generates a form state with error and loading included"
     },
@@ -282,10 +280,47 @@
     "XAReactStatelessComponent": {
         "prefix": "sfc",
         "body": [
+            "export interface I${0}Props {};",
+            "",
+            "const ${0}: React.FC<I${0}Props> = (props) => {",
+            "    return (",
+            "        <div>",
+            "            ",
+            "        </div>",
+            "    );",
+            "}",
+            "",
+            "export default ${0};"
+        ],
+        "description": "Generates a react function component without any state."
+    },
+    "XAReactGenericComponent": {
+        "prefix": "sfcg",
+        "body": [
+            "export interface I${0}Props<T> {};",
+            "",
+            "const ${0} = <T extends object>(props: I${0}Props<T> & { children?: any }) => {",
+            "    return (",
+            "        <div>",
+            "            ",
+            "        </div>",
+            "    );",
+            "}",
+            "",
+            "export default ${0};"
+        ],
+        "description": "Generates a react function component which takes a generic as its type parameter."
+    },
+    "XAReactStateComponent": {
+        "prefix": "sfcs",
+        "body": [
+            "import { IError, ILoading } from \"xa-generics\"",
             "",
             "export interface I${0}Props {};",
             "",
             "const ${0}: React.FC<I${0}Props> = (props) => {",
+            "   const [ error, setError ] = useState<IError>(null);",
+            "   const [ loading, setLoading ] = useState<ILoading>(false);",
             "    return (",
             "        <div>",
             "            ",
