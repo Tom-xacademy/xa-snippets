@@ -21,6 +21,8 @@ This is still released this way (instead of vsce packaging) because I didn't wan
 | onChange     | Generates an onChange property with the changeHandler impl.                                |
 | sfc          | Generates a simple function component with its own type.                                   |
 | pfc          | Generates a simple function component without props.                                       |
+| sfcg         | Generates a simple function component which takes a generic as its type.                   |
+| sfcs         | Generates a simple function component which also has a loading and error state.            |
 | imr          | Import the React package in the file.                                                      |
 | iml          | Starts the import line of a css file in the view.                                          |
 | ims          | Starts the import line of a css file in the view.                                          |
