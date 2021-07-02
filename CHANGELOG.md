@@ -1,3 +1,7 @@
+### v2.10.1
+
+-   Removed 'export' before model MData interface because it's more of an internal type-safety measure anyway, though it can be used in useForms and such.
+
 ### v2.10.0
 
 -   Removed export for the createContext line as they shouldn't be used anywhere. Use the 'useExampleContext' exported member instead.
