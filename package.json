@@ -1,7 +1,7 @@
 {
     "name": "xasnippets",
     "description": "React-typescript code snippets for XAcademy.",
-    "version": "2.10.3",
+    "version": "2.11.0",
     "displayName": "React - Typescript snippets (XAcademy)",
     "publisher": "Tomi",
     "icon": "images/react.png",
