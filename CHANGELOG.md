@@ -1,3 +1,9 @@
+### v2.10.2
+
+-   Added json snippet \_nn to generate a comma, new line, and then key-value pair on next line.
+-   Updated multiple function component exports to use simple export instead of export default.
+-   Added new cursor positons to daofoofull and a few other snippets.
+
 ### v2.10.1
 
 -   Removed 'export' before model MData interface because it's more of an internal type-safety measure anyway, though it can be used in useForms and such.
