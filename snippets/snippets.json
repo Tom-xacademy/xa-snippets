@@ -68,16 +68,17 @@
     "XAReactClass": {
         "prefix": "cc",
         "body": [
-            "import IError from \"xa-generics\"",
+            "import { Component } from \"react\";",
+            "import { IError, ILoading } from \"xa-generics\"",
             "",
-            "export type I${0}Props = {}",
+            "export interface I${0}Props {}",
             "",
             "export interface I${0}State {",
-            "    loading: boolean;",
+            "    loading: ILoading;",
             "    error: IError;",
             "}",
             "",
-            "class ${0} extends React.Component<I${0}Props, I${0}State> {",
+            "class ${0} extends Component<I${0}Props, I${0}State> {",
             "    state: I${0}State = {",
             "        loading: true,",
             "        error: null,",
@@ -100,16 +101,17 @@
         "prefix": "ccr",
         "body": [
             "import { connect } from \"react-redux\";",
-            "import { IError } from \"xa-generics\";",
+            "import { Component } from \"react\";",
+            "import { IError, ILoading } from \"xa-generics\";",
             "",
-            "export type I${0}Props = IReduxState & IReduxAction & {}",
+            "export interface I${0}Props extends IReduxState, IReduxAction {}",
             "",
             "export interface I${0}State {",
-            "    loading: boolean;",
+            "    loading: ILoading;",
             "    error: IError;",
             "}",
             "",
-            "class ${0} extends React.Component<I${0}Props, I${0}State> {",
+            "class ${0} extends Component<I${0}Props, I${0}State> {",
             "    state: I${0}State = {",
             "        loading: true,",
             "        error: null,",
@@ -223,74 +225,74 @@
     "XAReactStatelessComponentInheritor": {
         "prefix": "sfci",
         "body": [
+            "import { FC } from \"react\";",
             "import { I${0}Props, I${0}State } from \"../Controller/${0}.controller\"",
             "",
-            "export type I${1}Props = I${0}Props & I${0}State & {};",
+            "interface I${1}Props extends I${0}Props, I${0}State {};",
             "",
-            "const ${1}: React.FC<I${1}Props> = (props) => {",
+            "export const ${1}: FC<I${1}Props> = (props) => {",
             "    return (",
             "       <div>",
             "           ",
             "       </div>",
             "    );",
             "}",
-            "",
-            "export default ${1};"
+            ""
         ],
         "description": "(Class-based ctrl) => Generates a react function component which inherits cloned props and state from parent component."
     },
     "XAReactStatelessComponentInheritorFromViewType": {
         "prefix": "sfcv",
         "body": [
+            "import { FC } from \"react\";",
             "import { I${0}Props } from \"./${1}.view\"",
             "",
-            "export interface I${1}Props extends I${0}Props {};",
+            "interface I${1}Props extends I${0}Props {};",
             "",
-            "const ${1}: React.FC<I${1}Props> = (props) => {",
+            "export const ${1}: FC<I${1}Props> = (props) => {",
             "    return (",
             "       <div>",
             "           ",
             "       </div>",
             "    );",
             "}",
-            "",
-            "export default ${1};"
+            ""
         ],
         "description": "(Hook-based view) => Generates a react function component which inherits cloned props from a main view component."
     },
     "XAReactStatelessComponentInheritorFromFunctionControllerType": {
         "prefix": "sfhci",
         "body": [
+            "import { FC } from \"react\";",
             "import { I${0}Props } from \"../Controller/${0}.controller\"",
             "",
-            "export interface I${1}Props extends I${0}Props {};",
+            "interface I${1}Props extends I${0}Props {};",
             "",
-            "const ${1}: React.FC<I${1}Props> = (props) => {",
+            "export const ${1}: FC<I${1}Props> = (props) => {",
             "    return (",
             "       <div>",
             "           ",
             "       </div>",
             "    );",
             "}",
-            "",
-            "export default ${1};"
+            ""
         ],
         "description": "(Hook-based ctrl) => Generates a react function component which inherits cloned props from parent component."
     },
     "XAReactStatelessComponent": {
         "prefix": "sfc",
         "body": [
-            "export interface I${0}Props {};",
+            "import { FC } from \"react\";",
+            "interface I${0}Props {};",
             "",
-            "const ${0}: React.FC<I${0}Props> = (props) => {",
+            "export const ${0}: FC<I${0}Props> = (props) => {",
             "    return (",
             "        <div>",
             "            ",
             "        </div>",
             "    );",
             "}",
-            "",
-            "export default ${0};"
+            ""
         ],
         "description": "Generates a react function component without any state."
     },
@@ -299,26 +301,26 @@
         "body": [
             "export interface I${0}Props<T> {};",
             "",
-            "const ${0} = <T extends object>(props: I${0}Props<T> & { children?: any }) => {",
+            "export const ${0} = <T extends object>(props: I${0}Props<T> & { children?: any }) => {",
             "    return (",
             "        <div>",
             "            ",
             "        </div>",
             "    );",
             "}",
-            "",
-            "export default ${0};"
+            ""
         ],
         "description": "Generates a react function component which takes a generic as its type parameter."
     },
     "XAReactStateComponent": {
         "prefix": "sfcs",
         "body": [
+            "import { FC } from \"react\";",
             "import { IError, ILoading } from \"xa-generics\"",
             "",
             "export interface I${0}Props {};",
             "",
-            "const ${0}: React.FC<I${0}Props> = (props) => {",
+            "export const ${0}: FC<I${0}Props> = (props) => {",
             "   const [ error, setError ] = useState<IError>(null);",
             "   const [ loading, setLoading ] = useState<ILoading>(false);",
             "    return (",
@@ -327,21 +329,20 @@
             "        </div>",
             "    );",
             "}",
-            "",
-            "export default ${0};"
+            ""
         ],
         "description": "Generates a react function component which inherits cloned props and state from parent component."
     },
     "XAReactFunctionCmpRedux": {
         "prefix": "sfcr",
         "body": [
-            "import React from \"react\";",
+            "import { FC } from \"react\";",
             "import { connect } from \"react-redux\";",
             "import { IError } from \"xa-generics\";",
             "",
-            "export type I${0}Props = IReduxState & IReduxAction & {}",
+            "interface I${0}Props extends IReduxState, IReduxAction {}",
             "",
-            "const ${0}: React.FC<I${0}Props> = (props) => {",
+            "const ${0}: FC<I${0}Props> = (props) => {",
             "    return (",
             "        <div>",
             "            ",
@@ -390,7 +391,7 @@
     "XAReactDAO": {
         "prefix": "dao",
         "body": [
-            "import { axios } from \"xa-generics\"",
+            "import { axios, IDynamicObject } from \"xa-generics\"",
             "import { AxiosPromise, AxiosResponse } from \"axios\"",
             "",
             "export abstract class ${1}DAO {",
@@ -413,7 +414,7 @@
             "        ModelConstructor(data, this);",
             "    }",
             "",
-            "    ${3}",
+            "    ${2}id: string = \"\";",
             "}",
             "",
             "//If you add public methods, you may want to replace the empty string with them!",
@@ -601,25 +602,25 @@
         "prefix": "daofoofull",
         "body": [
             "public static async load${1} (): Promise<${2}[]> {",
-            "    const request: AxiosPromise<IDynamicObject[]> = axios.getInstance().get(`${this.base}`)",
+            "    const request: AxiosPromise<IDynamicObject[]> = axios.getInstance().get(`${this.base${6}}`)",
             "    const response: AxiosResponse<IDynamicObject[]> = await request;",
             "    return response.data.map((item) => new ${2}(item));",
             "}",
             "",
-            "public static async save${1} (data: string): Promise<void> {",
-            "    const request: AxiosPromise<void> = axios.getInstance().post(`${this.base}`, data)",
-            "    const response: AxiosResponse<void> = await request;",
+            "public static async save${1} (data: ${3}string): Promise<void> {",
+            "    const request: AxiosPromise<${4}void> = axios.getInstance().post(`${this.base${6}}`, data)",
+            "    const response: AxiosResponse<${4}void> = await request;",
             "    return response.data;",
             "}",
             "",
-            "public static async update${1} (id: string, data: string): Promise<void> {",
-            "    const request: AxiosPromise<void> = axios.getInstance().patch(`${this.base}/${ id }`, data)",
-            "    const response: AxiosResponse<void> = await request;",
+            "public static async update${1} (id: string, data: ${3}string): Promise<void> {",
+            "    const request: AxiosPromise<{5}void> = axios.getInstance().patch(`${this.base${6}}/${ id }`, data)",
+            "    const response: AxiosResponse<{5}void> = await request;",
             "    return response.data;",
             "}",
             "",
             "public static async remove${1} (id: string): Promise<void> {",
-            "    const request: AxiosPromise<void> = axios.getInstance().delete(`${this.base}/${ id }`)",
+            "    const request: AxiosPromise<void> = axios.getInstance().delete(`${this.base${6}}/${ id }`)",
             "    const response: AxiosResponse<void> = await request;",
             "    return response.data;",
             "}"
@@ -669,17 +670,16 @@
     "PureFunctionComponent": {
         "prefix": "pfc",
         "body": [
-            "import React from \"react\";",
+            "import { FC } from \"react\";",
             "",
-            "const ${0}: React.FC = () => {",
+            "export const ${0}: FC = () => {",
             "    return (",
             "        <div>",
             "            ",
             "        </div>",
             "    );",
             "}",
-            "",
-            "export default ${0};"
+            ""
         ],
         "description": "Generates a pure function component"
     },
@@ -688,7 +688,7 @@
         "body": [
             "interface I${0}Props {}",
             "",
-            "const ${0}: React.FC<I${0}Props> = (props) => {",
+            "const ${0}: FC<I${0}Props> = (props) => {",
             "    return (",
             "        <div>",
             "            ",
@@ -701,7 +701,7 @@
     "ImportExportlessPFC": {
         "prefix": "pfcnie",
         "body": [
-            "const ${0}: React.FC = () => {",
+            "const ${0}: FC = () => {",
             "    return (",
             "        <div>",
             "            ",
@@ -725,5 +725,15 @@
         "prefix": "t_2",
         "body": ["t<ILang>(${1})"],
         "description": "T=> \"t<ILang>(${1})\""
+    },
+    "TranslationFunctionType3": {
+        "prefix": "t_3",
+        "body": ["{t<ILang>(${1})}"],
+        "description": "T=> \"{t<ILang>(${1})}\""
+    },
+    "TranslationFunctionType4": {
+        "prefix": "t_4",
+        "body": ["t<ILang>(\"${1}\")"],
+        "description": "T=> \"t<ILang>(\"${1}\")\""
     }
 }
