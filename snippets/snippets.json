@@ -735,5 +735,34 @@
         "prefix": "t_4",
         "body": ["t<ILang>(\"${1}\")"],
         "description": "T=> \"t<ILang>(\"${1}\")\""
+    },
+    "udm": {
+        "prefix": "udm",
+        "body": ["useDidMount${1}(() => {", "    ${2}", "});"],
+        "description": "Generate a custom hook from xa-generics pacakge"
+    },
+    "udmev": {
+        "prefix": "udmev",
+        "body": [
+            "",
+            "const handle${3} = (${4}) => {}",
+            "",
+            "useDidMount${1}(() => {",
+            "    window.addEventListener(\"${2}\", handle${3}, { passive: true });",
+            "}, () => {",
+            "    window.removeEventListener(\"${2}\", handle${3});",
+            "});"
+        ],
+        "description": "Generate a custom useDidMount hook from xa-generics package with window event listener attachment."
+    },
+    "udmt": {
+        "prefix": "udmt",
+        "body": ["useMountWithTriggers${1}(() => {", "    ${2}", "}, [${3}]);"],
+        "description": "Generate a custom hook from xa-generics package."
+    },
+    "udat": {
+        "prefix": "udat",
+        "body": ["useAfterTriggerChanged${1}(() => {", "    ${2}", "}, ${3});"],
+        "description": "Generate a custom hook from xa-generics package."
     }
 }
