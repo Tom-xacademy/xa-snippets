@@ -73,8 +73,14 @@ This is still released this way (instead of vsce packaging) because I didn't wan
 | \_n          | Generate new key-value pair in json files.                                                 |
 | r17settings  | Generate a react17 settings json file along with our own styling/global rules. (TS>=4.1.2) |
 | utrans       | Add a line of useTranslation and its {t} function import.                                  |
-| t_1          | Add a line of t() function (type 1) [Object brackets {} and string key]                    |
+| t_1          | Add a line of t() function (type 1) [Object brackets {} and string key].                   |
 | t_2          | Add a line of t() function (type 2) [No object {} brackets and variable as key].           |
+| t_3          | Add a line of t() function (type 3) [Object brackets {} and variable as key].              |
+| t_4          | Add a line of t() function (type 4) [No object {} brackets and string key].                |
+| udm          | Generates a useDidMount custom hook from the xa-generics package.                          |
+| udmev        | Generates a useDidMount custom hook with window event listener.                            |
+| udmt         | Generates a useMountWithTriggers custom hook from the xa-generics package.                 |
+| udat         | Generates a useAfterTriggerChanged custom hook from the xa-generics package.               |
 
 # Repository URLs
 
