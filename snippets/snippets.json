@@ -755,14 +755,39 @@
         ],
         "description": "Generate a custom useDidMount hook from xa-generics package with window event listener attachment."
     },
-    "udmt": {
-        "prefix": "udmt",
+    "umwt": {
+        "prefix": "umwt",
         "body": ["useMountWithTriggers${1}(() => {", "    ${2}", "}, [${3}]);"],
         "description": "Generate a custom hook from xa-generics package."
     },
-    "udat": {
-        "prefix": "udat",
+    "uatc": {
+        "prefix": "uatc",
         "body": ["useAfterTriggerChanged${1}(() => {", "    ${2}", "}, ${3});"],
         "description": "Generate a custom hook from xa-generics package."
+    },
+    "prop": {
+        "prefix": "prop",
+        "body": "${1}: ${2};",
+        "description": "A key-value pair for prop interfaces."
+    },
+    "propSetter": {
+        "prefix": "ps",
+        "body": "${1}: ISetState<${2}>;",
+        "description": "Generates a quick prop interface element for a state setter."
+    },
+    "propsetter": {
+        "prefix": "pss",
+        "body": ["set${3}${1}: ISetState<${2}>;", "${1}: ${2};"],
+        "description": "Generates a quick prop interface element with setter included."
+    },
+    "stringprop": {
+        "prefix": "strprop",
+        "body": ["set${2}${1}: ISetState<string>;", "${1}: string;"],
+        "description": "Generates a quick string prop with setter."
+    },
+    "boolprop": {
+        "prefix": "boolprop",
+        "body": ["set${2}${1}: ISetState<boolean>;", "${1}: boolean;"],
+        "description": "Generates a quick boolean prop with setter."
     }
 }

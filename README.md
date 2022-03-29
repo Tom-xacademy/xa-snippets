@@ -71,7 +71,6 @@ This is still released this way (instead of vsce packaging) because I didn't wan
 | cfoo         | Generate an arrow function in react classes.                                               |
 | per          | Generate two lines that passes the local error and loading states (from useState).         |
 | \_n          | Generate new key-value pair in json files.                                                 |
-| r17settings  | Generate a react17 settings json file along with our own styling/global rules. (TS>=4.1.2) |
 | utrans       | Add a line of useTranslation and its {t} function import.                                  |
 | t_1          | Add a line of t() function (type 1) [Object brackets {} and string key].                   |
 | t_2          | Add a line of t() function (type 2) [No object {} brackets and variable as key].           |
@@ -79,8 +78,13 @@ This is still released this way (instead of vsce packaging) because I didn't wan
 | t_4          | Add a line of t() function (type 4) [No object {} brackets and string key].                |
 | udm          | Generates a useDidMount custom hook from the xa-generics package.                          |
 | udmev        | Generates a useDidMount custom hook with window event listener.                            |
-| udmt         | Generates a useMountWithTriggers custom hook from the xa-generics package.                 |
-| udat         | Generates a useAfterTriggerChanged custom hook from the xa-generics package.               |
+| udwt         | Generates a useMountWithTriggers custom hook from the xa-generics package.                 |
+| udtc         | Generates a useAfterTriggerChanged custom hook from the xa-generics package.               |
+| ps           | Generates a quick prop interface element for a state setter.                               |
+| pss          | Generates a quick prop interface element with setter included.                             |
+| prop         | A key-value pair for prop interfaces.                                                      |
+| strprop      | Generates a quick string prop with setter.                                                 |
+| boolprop     | Generates a quick boolean prop with setter.                                                |
 
 # Repository URLs
 

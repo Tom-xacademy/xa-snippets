@@ -1,3 +1,9 @@
+### v2.12.0
+
+-   Renamed udmt to umwt and udat to uatc to better reflect the first letters of each word.
+-   Added ps, pss, prop, strprop, and boolprop commands to populate prop interfaces quickly.
+-   Removed the r17settings key
+
 ### v2.11.0
 
 -   Added udm, udmev, udmt, udat snippets for the various custom hook usages.
