@@ -1,3 +1,8 @@
+### v2.13.1
+
+-   Fixed the get dao still referencing the response.data instead of request.data
+-   Updated the 'daofoo' snippet cursor locations and similarly removed response.data reference.
+
 ### v2.13.0
 
 -   Updated model generation with created_at and updated_at as they always exist anyway...
