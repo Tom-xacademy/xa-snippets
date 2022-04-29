@@ -1,3 +1,9 @@
+### v2.13.0
+
+-   Updated model generation with created_at and updated_at as they always exist anyway...
+-   Updated dao generation by remowing the 'base' because the url always comes from the root dao
+-   Change the dao methods request/response typings so they no longer import stuff from axios library and use its generics instead.
+
 ### v2.12.0
 
 -   Renamed udmt to umwt and udat to uatc to better reflect the first letters of each word.
