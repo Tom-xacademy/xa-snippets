@@ -7,7 +7,7 @@
     "icon": "images/react.png",
     "license": "ISC",
     "scripts": {
-        "build": "vsce package",
+        "build": "yarn clean && vsce package",
         "clean": "rm -rf xasnippets-*.vsix"
     },
     "repository": {
