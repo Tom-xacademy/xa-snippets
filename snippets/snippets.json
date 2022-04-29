@@ -392,15 +392,13 @@
         "prefix": "dao",
         "body": [
             "import { axios, IDynamicObject } from \"xa-generics\"",
-            "import { AxiosPromise, AxiosResponse } from \"axios\"",
             "",
-            "export abstract class ${1}DAO {",
-            "    private static readonly base: string = \"${2}\"",
+            "export abstract class ${1}DAO extends RootDAO {",
             "",
             "    ${3}",
             "}"
         ],
-        "description": "Generates a Data Access Object for an API."
+        "description": "Generates a Data Access Object for an API. Note, it extends a RootDAO which should contain the url generating processes."
     },
     "XAReactModel": {
         "prefix": "model",
@@ -415,6 +413,8 @@
             "    }",
             "",
             "    ${2}id: string = \"\";",
+            "    created_at: string = \"\";",
+            "    updated_at: string = \"\";",
             "}",
             "",
             "//If you add public methods, you may want to replace the empty string with them!",
@@ -522,9 +522,10 @@
         "prefix": "daofoo",
         "body": [
             "public static async ${1} (): Promise<${2}> {",
-            "    const request: AxiosPromise<${3}> = axios.getInstance().${4}(`${this.base}`)",
-            "    const response: AxiosResponse<${3}> = await request;",
-            "    return ${5}",
+            "    const request = await axios.getInstance()",
+            "          .${3}<${4}, ${5}>(`${7}`)",
+            "    const response = await request;",
+            "    return ${6}",
             "}"
         ],
         "description": "Generates a DAO request method."
@@ -532,10 +533,9 @@
     "XADAOFooPost": {
         "prefix": "daofoopost",
         "body": [
-            "public static async save${1} (data: string): Promise<void> {",
-            "    const request: AxiosPromise<void> = axios.getInstance().post(`${this.base}`, data)",
-            "    const response: AxiosResponse<void> = await request;",
-            "    return response.data;",
+            "public static async save${1} (data: IDynamicObject<any>): Promise<${3}Model> {",
+            "    const request = await axios.getInstance().post<${2}>(`${5}`, data)",
+            "    return ${4}new ${3}Model(request.data);",
             "}"
         ],
         "description": "Generates a POST DAO request method."
@@ -543,10 +543,19 @@
     "XADAOFooPatch": {
         "prefix": "daofoopatch",
         "body": [
-            "public static async update${1} (id: string, data: string): Promise<void> {",
-            "    const request: AxiosPromise<void> = axios.getInstance().patch(`${this.base}/${ id }`, data)",
-            "    const response: AxiosResponse<void> = await request;",
-            "    return response.data;",
+            "public static async update${1} (id: string, data: IDynamicObject<any>): Promise<${3}Model> {",
+            "    const request = await axios.getInstance().patch<${2}>(`${5}/${ id }`, data)",
+            "    return ${4}new ${3}Model(request.data);",
+            "}"
+        ],
+        "description": "Generates a PATCH DAO request method."
+    },
+    "XADAOFooPatchNoId": {
+        "prefix": "daofoopatchnoid",
+        "body": [
+            "public static async update${1} (data: IDynamicObject<any>): Promise<${3}Model> {",
+            "    const request = await axios.getInstance().patch<${2}>(`${5}`, data)",
+            "    return ${4}new ${3}Model(request.data);",
             "}"
         ],
         "description": "Generates a PATCH DAO request method."
@@ -555,9 +564,7 @@
         "prefix": "daofoodelete",
         "body": [
             "public static async remove${1} (id: string): Promise<void> {",
-            "    const request: AxiosPromise<void> = axios.getInstance().delete(`${this.base}/${ id }`)",
-            "    const response: AxiosResponse<void> = await request;",
-            "    return response.data;",
+            "    return await axios.getInstance().delete<void, void>(`${2}/${ id }`)",
             "}"
         ],
         "description": "Generates a DELETE DAO request method."
@@ -565,10 +572,11 @@
     "XADAOFooGet": {
         "prefix": "daofooget",
         "body": [
-            "public static async load${1} (): Promise<${2}[]> {",
-            "    const request: AxiosPromise<IDynamicObject[]> = axios.getInstance().get(`${this.base}`)",
-            "    const response: AxiosResponse<IDynamicObject[]> = await request;",
-            "    return response.data.map((item) => new ${2}(item));",
+            "public static async load${1} (): Promise<${2}Model[]> {",
+            "    const request = await axios",
+            "        .getInstance()",
+            "        .get<IDynamicObject<any>[]>(`${3}`)",
+            "    return request.data.map((item) => new ${2}Model(item));",
             "}"
         ],
         "description": "Generates a GET DAO request method, which loads a list."
@@ -576,10 +584,11 @@
     "XADAOFooGetOne": {
         "prefix": "daofoogetone",
         "body": [
-            "public static async load${1} (id: string): Promise<${2}> {",
-            "    const request: AxiosPromise<IDynamicObject> = axios.getInstance().get(`${this.base}/${ id }`)",
-            "    const response: AxiosResponse<IDynamicObject> = await request;",
-            "    return new ${2}(response.data);",
+            "public static async load${1} (id: string${4}): Promise<${2}Model> {",
+            "    const request = await axios",
+            "        .getInstance()",
+            "        .get<IDynamicObject<any>>(`${3}/${ id }`)",
+            "    return new ${2}Model(response.data);",
             "}"
         ],
         "description": "Generates a GET DAO request method, which loads an item of something."
@@ -601,29 +610,32 @@
     "XADAOFull": {
         "prefix": "daofoofull",
         "body": [
-            "public static async load${1} (): Promise<${2}[]> {",
-            "    const request: AxiosPromise<IDynamicObject[]> = axios.getInstance().get(`${this.base${6}}`)",
-            "    const response: AxiosResponse<IDynamicObject[]> = await request;",
-            "    return response.data.map((item) => new ${2}(item));",
+            "public static async load${1} (): Promise<${2}Model[]> {",
+            "    const request = await axios",
+            "        .getInstance()",
+            "        .get<IDynamicObject<any>[]>(`${3}`)",
+            "    return request.data.map((item) => new ${2}Model(item));",
             "}",
             "",
-            "public static async save${1} (data: ${3}string): Promise<void> {",
-            "    const request: AxiosPromise<${4}void> = axios.getInstance().post(`${this.base${6}}`, data)",
-            "    const response: AxiosResponse<${4}void> = await request;",
-            "    return response.data;",
+            "public static async save${1} (data: IDynamicObject<any>): Promise<${2}Model> {",
+            "    const request = await axios",
+            "        .getInstance()",
+            "        .post<IDynamicObject<any>>(`${3}`, data)",
+            "    return new ${2}Model(request.data);",
             "}",
             "",
-            "public static async update${1} (id: string, data: ${3}string): Promise<void> {",
-            "    const request: AxiosPromise<{5}void> = axios.getInstance().patch(`${this.base${6}}/${ id }`, data)",
-            "    const response: AxiosResponse<{5}void> = await request;",
-            "    return response.data;",
+            "public static async update${1} (id: string, data: IDynamicObject<any>): Promise<${2}Model> {",
+            "    const request = await axios",
+            "        .getInstance()",
+            "        .patch<IDynamicObject<any>>(`${3}/${ id }`, data)",
+            "    return new ${2}Model(request.data);",
             "}",
             "",
             "public static async remove${1} (id: string): Promise<void> {",
-            "    const request: AxiosPromise<void> = axios.getInstance().delete(`${this.base${6}}/${ id }`)",
-            "    const response: AxiosResponse<void> = await request;",
-            "    return response.data;",
-            "}"
+            "    return await axios",
+            "        .getInstance()",
+            "        .delete<void>(`${3}/${ id }`);",
+            "}${4}"
         ],
         "description": "Generates all the DAO request methods (POST/GET/PATCH/DELETE)."
     },
