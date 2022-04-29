@@ -521,11 +521,11 @@
     "XADAOFoo": {
         "prefix": "daofoo",
         "body": [
-            "public static async ${1} (): Promise<${2}> {",
-            "    const request = await axios.getInstance()",
-            "          .${3}<${4}, ${5}>(`${7}`)",
-            "    const response = await request;",
-            "    return ${6}",
+            "public static async ${1} (${6}): Promise<${2}> {",
+            "    const request = await axios",
+            "        .getInstance()",
+            "        .${3}<${4}>(`${5}`)",
+            "    return ${7}",
             "}"
         ],
         "description": "Generates a DAO request method."
@@ -588,7 +588,7 @@
             "    const request = await axios",
             "        .getInstance()",
             "        .get<IDynamicObject<any>>(`${3}/${ id }`)",
-            "    return new ${2}Model(response.data);",
+            "    return new ${2}Model(request.data);",
             "}"
         ],
         "description": "Generates a GET DAO request method, which loads an item of something."
